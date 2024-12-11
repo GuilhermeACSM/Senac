@@ -21,12 +21,11 @@
         <div class="row">
 
             <div class="card-login">
-                <div class="card">
+                <div class="card" style="width: 20rem;">
                     <div class="card-header">
                         Cadastre-se
                     </div>
-                    <div class="card-body">
-
+                    <div class="card-body" >
                         <form action="registro_cadastro.php" method="POST">
                             <div class="form-group">
                                 <input type="text" class="form-control" placeholder="Nome Completo" name="nome" required>
@@ -41,6 +40,7 @@
                                 <select name="select" id="select" class="form-control" required>
                                     <option value="" disabled selected>Selecionar Item</option>
                                     <option value="adm">Administrador</option>
+                                    <option value="tecnico">Técnico</option>
                                     <option value="usuario">Usuario</option>
                                 </select>
                             </div>

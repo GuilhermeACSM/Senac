@@ -83,7 +83,7 @@ require_once "validador_acesso.php";
 
                                     <div class="form-group">
                                         <label>Descrição</label>
-                                        <textarea class="form-control" rows="3" name="descricao" required></textarea>
+                                        <textarea class="form-control" rows="3" name="descricao" required maxlength="50"></textarea>
                                     </div>
 
                                     <div class="col-12">

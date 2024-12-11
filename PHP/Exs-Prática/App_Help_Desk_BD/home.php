@@ -64,7 +64,6 @@ require_once "validador_acesso.php";
                     $usuarioPerfil = $_SESSION['perfil'];
 
                     if ($usuarioPerfil == 'administrador') { ?>
-
                         <a id="link" href="./editar_arquivo.php">
                             <div class="card-gui card-header">
                                 <div class="card-gui-img">

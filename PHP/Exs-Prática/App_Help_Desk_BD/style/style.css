@@ -73,6 +73,14 @@ body {
     color: #343a40;
 }
 
+.card-gui-p #p-andamento {
+    text-decoration: none;
+    color: darkorange;
+}.card-gui-p #p-finalizado {
+    text-decoration: none;
+    color: teal;
+}
+
 
 /* Formulários */
 .form-group {
@@ -169,6 +177,48 @@ body {
     padding: 0px;
     height: 30px;
   }
+
+/* Estilo para o botão do popover */
+button[popovertarget='my-popover'] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button[popovertarget='my-popover']:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para o conteúdo do popover */
+#my-popover {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    font-size: 16px;
+    color: #333;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+}
+
+/* Mostrar o popover ao interagir com o botão */
+button[popovertarget='my-popover']:hover + #my-popover {
+    display: block;
+}
+
 
   @media screen and (max-width: 2000px) {
     .container-card-gui {

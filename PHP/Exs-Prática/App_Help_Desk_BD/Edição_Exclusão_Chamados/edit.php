@@ -82,7 +82,7 @@ if($_POST) {
                                     <div class="form-group">
                                         <label>Status</label>
                                         <select class="form-control" name="status" required>
-                                            <option value="<?php echo trim($chamado['status']);?>" disabled selected><?php echo trim($chamado['status']);?></option>
+                                            <option value="<?php echo trim($chamado['status']);?>"  selected><?php echo trim($chamado['status']);?></option>
                                             <option>Aberto</option>
                                             <option>Andamento</option>
                                             <option>Finalizado</option>
@@ -100,9 +100,7 @@ if($_POST) {
                                     </div>
 
                                     <div class="row mt-5">
-                                        <div class="col-6">
-
-                                        <div class="col-6">
+                                        <div class="col-12">
                                             <button class="btn btn-lg btn-info btn-block" type="submit">Editar</button>
                                         </div>
                                     </div>

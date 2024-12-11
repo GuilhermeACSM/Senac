@@ -58,7 +58,10 @@ $chamados = mysqli_query($link, "SELECT TB_CHAMADOS.*, TB_USUARIOS.nome
                                 <div class="card-body">
                                     <h5 class="card-title"><?php echo $chamado['titulo'] ?></h5>
                                     <h6 class="card-subtitle mb-2 text-muted"><?php echo $chamado['categoria'] ?></h6>
-                                    <p class="card-text"><?php echo $chamado['descricao'] ?></p>
+                                    <button popovertarget='my-popover' class="descricao-link">
+                                        Descrição
+                                    </button>
+                                    <p class="card-text" id='my-popover' popover><?php echo $chamado['descricao'] ?></p>
 
                                     <p class="card-text"><strong>Status do Chamado:</strong> <?php echo $chamado['status'] ?></p>
 
@@ -77,5 +80,4 @@ $chamados = mysqli_query($link, "SELECT TB_CHAMADOS.*, TB_USUARIOS.nome
         </div>
     </div>
 </body>
-
 </html>

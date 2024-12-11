@@ -66,7 +66,7 @@ $chamados = mysqli_query($link, "SELECT TB_CHAMADOS.*, TB_USUARIOS.nome
             <div class="card-consultar-chamado">
                 <div class="card" style="width: 100%;">
                     <div class="card-header">
-                        Consulta de chamado
+                        Editar chamado
                     </div>
 
                     <div class="card-body" id="card-body-gui">
