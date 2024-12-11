@@ -38,12 +38,12 @@ $chamados = mysqli_query($link, "SELECT TB_CHAMADOS.*, TB_USUARIOS.nome
     <div class="container">
         <div class="row">
             <div class="card-consultar-chamado">
-                <div class="card">
+                <div class="card" style="width: 100%;">
                     <div class="card-header">
                         Consulta de chamado
                     </div>
 
-                    <div class="card-body">
+                    <div class="card-body" id="card-body-gui">
 
                         <?php
                         $usuarioId = $_SESSION['id_usuario'];
@@ -53,19 +53,20 @@ $chamados = mysqli_query($link, "SELECT TB_CHAMADOS.*, TB_USUARIOS.nome
                             if ($usuarioPerfil != 'administrador' && $chamado['id_usuario'] != $usuarioId) {
                                 continue;
                             }
-                            ?>
+                        ?>
                             <div class="card mb-3 bg-light">
                                 <div class="card-body">
                                     <h5 class="card-title"><?php echo $chamado['titulo'] ?></h5>
                                     <h6 class="card-subtitle mb-2 text-muted"><?php echo $chamado['categoria'] ?></h6>
                                     <p class="card-text"><?php echo $chamado['descricao'] ?></p>
-                                    
+
                                     <p class="card-text"><strong>Status do Chamado:</strong> <?php echo $chamado['status'] ?></p>
 
                                     <?php if ($usuarioPerfil == 'administrador') { ?>
-                                        <p class="card-text"><strong>Nome do usuário:</strong> <?php echo $chamado['nome']?></p>
+                                        <p class="card-text"><strong>Nome do usuário:</strong> <?php echo $chamado['nome'] ?></p>
                                         <p class="card-text"><strong>ID do usuário:</strong> <?php echo $chamado['id_usuario'] ?></p>
                                     <?php } ?>
+                                    <p class="card-text"><strong>Data de Criação:</strong> <?php echo $chamado['data_criacao'] ?></p>
                                 </div>
                             </div>
                         <?php } ?>

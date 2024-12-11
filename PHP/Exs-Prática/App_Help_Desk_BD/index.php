@@ -22,7 +22,7 @@
         <div class="row">
 
             <div class="card-login">
-                <div class="card">
+                <div class="card" style="width: 20rem;">
                     <div class="card-header">
                         Login
                     </div>

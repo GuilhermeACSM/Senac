@@ -64,12 +64,12 @@ $chamados = mysqli_query($link, "SELECT TB_CHAMADOS.*, TB_USUARIOS.nome
     <div class="container">
         <div class="row">
             <div class="card-consultar-chamado">
-                <div class="card">
+                <div class="card" style="width: 100%;">
                     <div class="card-header">
                         Consulta de chamado
                     </div>
 
-                    <div class="card-body">
+                    <div class="card-body" id="card-body-gui">
 
                         <?php
                         $usuarioId = $_SESSION['id_usuario'];
@@ -91,11 +91,13 @@ $chamados = mysqli_query($link, "SELECT TB_CHAMADOS.*, TB_USUARIOS.nome
                                         <p class="card-text"><strong>Nome do usuário:</strong> <?php echo $chamado['nome'] ?></p>
                                         <p class="card-text"><strong>ID do usuário:</strong> <?php echo $chamado['id_usuario'] ?></p>
                                         <p class="card-text"><strong>Status do Chamado:</strong> <?php echo $chamado['status'] ?></p>
+                                        <p class="card-text"><strong>Data de Criação:</strong> <?php echo $chamado['data_criacao'] ?></p>
                                     <?php } ?>
 
-                                    <a href="../App_Help_Desk_BD/Edição_Exclusão_Chamados/edit.php?id_chamado=<?php echo $chamado['id_chamado'] ?>"><button type="button" class="btn btn-success">Editar</button></a>
-
-                                    <a href="../App_Help_Desk_BD/Edição_Exclusão_Chamados/delete.php?acao=excluir&id_chamado=<?php echo $chamado['id_chamado'] ?>"><button type="button" class="btn btn-danger">Excluir</button></a>
+                                    <div class="button-container">
+                                        <a href="../App_Help_Desk_BD/Edição_Exclusão_Chamados/edit.php?id_chamado=<?php echo $chamado['id_chamado'] ?>"><button type="button" class="btn btn-success">Editar</button></a>
+                                        <a href="../App_Help_Desk_BD/Edição_Exclusão_Chamados/delete.php?acao=excluir&id_chamado=<?php echo $chamado['id_chamado'] ?>"><button type="button" class="btn btn-danger">Excluir</button></a>
+                                    </div>
 
 
                                 </div>

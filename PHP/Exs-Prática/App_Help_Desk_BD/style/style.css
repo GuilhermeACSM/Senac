@@ -16,16 +16,48 @@ body {
 .card-abrir-chamado, .card-home {
     padding: 30px 0 0 0;
     width: 100%;
+
 }
-
-
 
 /* Cards */
 .card {
     display: flex;
     gap: 10px;
-    width: 100%;
 }
+
+#card-body-gui {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: flex-start; 
+}
+
+#card-body-gui > div {
+    flex: 1 1 calc(25% - 16px);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    min-width: 250px;
+}
+
+#card-body-gui > div h3 {
+    font-size: 1.25rem;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+#card-body-gui > div p {
+    margin: 4px 0;
+    color: #555;
+}
+
+#card-body-gui > div strong {
+    color: #000;
+}
+
 
 .card img {
     border-radius: 8px;

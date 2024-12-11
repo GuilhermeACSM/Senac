@@ -94,6 +94,11 @@ if($_POST) {
                                         <textarea class="form-control" rows="3" name="descricao" required value="<?php echo trim($chamado['descricao']); ?>"><?php echo trim($chamado['descricao']); ?></textarea>
                                     </div>
 
+                                    <div class="form-group">
+                                        <label>Data de Criação</label>
+                                        <input class="form-control" rows="3" name="data" required value="<?php echo trim($chamado['data_criacao']);?>" disabled ></input>
+                                    </div>
+
                                     <div class="row mt-5">
                                         <div class="col-6">
 
