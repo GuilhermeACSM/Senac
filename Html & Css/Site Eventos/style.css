@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    background-image: url(./Img/background.jpg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/*-------Menu-------*/
+.menu{
+    width: 100%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    background-color: black;
+    padding: 20px;
+    color: white;
+}
+
+.menu h3{
+    font-weight: 400;
+}
+
+.menu li{
+    display: inline-block;
+}
+
+.menu a{
+    color: rgb(255, 255, 255);
+    padding: 10px 17px;
+    text-decoration: none;
+}
+
+
+/*-------Botão_do_Menu-------*/
+.menu button{
+    padding: 0px 7px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    display: none;
+}
+
+/*-------Principal-------*/
+.principal{
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.principal h1{
+    text-shadow: 5px 3px rgba(0, 0, 0, 0.404);
+    font-size: 70px;
+    color: white;
+    font-weight: 400;
+}
+
+.principal p{
+    font-size: 20px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.principal button{
+    padding: 12px 20px;
+    border: none;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border-radius: 7px;
+    font-size: 20px;
+    transition-duration: 0.5s;
+    border: 1px solid black;
+}
+
+.principal button:hover{
+    background-color: transparent;
+    border: 1px solid white;
+}
+
+.principal a{
+    color: white;
+    text-decoration: none;
+}
+
+
+.wpp-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    color: white;
+    background-color: green;
+    width: 50px;
+    bottom: 80px;
+    right: 10px;
+    height: 50px;
+    border-radius: 50px;
+    font-size: 30px;
+    z-index: 1000;
+    box-shadow: 1px 1px 2px white;
+    position: fixed;
+    text-decoration: none;
+}
+
+.wpp-link:hover {
+    color: black;
+    border: 1px solid black;
+}
+
+/*-------Copyright-------*/
+.copyright{
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgba(0, 0, 0, 0.425);
+    backdrop-filter: blur(30px);
+    color: white;
+}
+
+.redes{
+    display: flex;
+    justify-content: right;
+    gap: 10px;
+}
+
+.redes i{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid white;
+    border-radius: 50px;
+    font-size: 35px;
+    cursor: pointer;
+    transition-duration: 0.7s;
+}
+
+.redes i:hover{
+    background-color: white;
+    color: black;
+}
+
+
+
+/*-------Responsividade-------*/
+@media screen and (max-width: 768px) {
+    .menu button{
+        display: block;
+    }
+
+    .menu ul{
+        width: 30%;
+        display: none;
+        position: absolute;
+        top: 9%;
+        right: 0%;
+        background-color: black;
+    }
+
+    .menu li{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    .principal h1{
+        font-size: 50px;
+    }
+
+    .copyright{
+        justify-content: space-between;
+        padding: 10px 20px;
+    }
+
+    .redes i{
+        width: 45px;
+        height: 45px;
+        font-size: 27px;
+    }
+
+    .registro{
+        width: 90%;
+    }
+}

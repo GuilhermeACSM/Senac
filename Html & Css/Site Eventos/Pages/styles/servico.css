@@ -1,0 +1,325 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    background-image: url(/Img/background.jpg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/*-------Menu-------*/
+.menu{
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: black;
+    padding: 20px;
+    color: white;
+}
+
+.menu h3{
+    font-weight: 400;
+}
+
+.menu li{
+    display: inline-block;
+}
+
+.menu a{
+    color: white;
+    padding: 10px 17px;
+    text-decoration: none;
+}
+
+/*-------Botão_do_Menu-------*/
+.menu button{
+    padding: 0px 7px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    display: none;
+}
+
+/*-------Titulo-------*/
+.titulo{
+    width: 100%;
+    height: 25vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.titulo h1{
+    text-shadow: 5px 3px rgba(0, 0, 0, 0.404);
+    font-size: 70px;
+    font-weight: 400;
+    color: white;
+}
+
+/*-------Serviço-------*/
+.servico{
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.card{
+    width: 30%;
+    padding: 5px;
+    border-radius: 7px;
+    background-color: white;
+    box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.37);
+}
+
+.card img{
+    width: 100%;
+    height: 40vh;
+}
+
+.card h2{
+    text-align: center;
+    font-size: 25px;
+    font-weight: 400;
+}
+
+/*------Fotos-------*/
+.foto{
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.26);
+    backdrop-filter: blur(30px);
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    padding: 10px;
+}
+
+/*-------Copyright-------*/
+.copyright{
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgba(0, 0, 0, 0.425);
+    backdrop-filter: blur(30px);
+    color: white;
+    margin-top: 20px;
+}
+
+.redes{
+    display: flex;
+    justify-content: right;
+    gap: 10px;
+}
+
+
+.redes i{
+    text-decoration: none;
+    color: white;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid white;
+    border-radius: 50px;
+    font-size: 35px;
+    cursor: pointer;
+    transition-duration: 0.7s;
+}
+
+.redes i:hover{
+    background-color: white;
+    color: black;
+}
+
+.wpp-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    color: white;
+    background-color: green;
+    width: 50px;
+    bottom: 80px;
+    right: 10px;
+    height: 50px;
+    border-radius: 50px;
+    font-size: 30px;
+    z-index: 1000;
+    box-shadow: 1px 1px 2px white;
+    position: fixed;
+    text-decoration: none;
+}
+
+.wpp-link:hover {
+    color: black;
+    border: 1px solid black;
+}
+
+/*-------Responsividade-------*/
+@media screen and (max-width: 768px) {
+    .menu button{
+        display: block;
+    }
+
+    .menu ul{
+        width: 30%;
+        display: none;
+        position: absolute;
+        top: 9%;
+        right: 0%;
+        background-color: black;
+    }
+
+    .menu li{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .titulo{
+        height: 20vh;
+    }
+    
+    .card{
+        width: 90%;
+        padding: 5px;
+    }
+}               
+
+
+/*-----------Carrossel-----------*/
+.focus {
+    background-color: rgba(0, 0, 0, 0.418);
+    backdrop-filter: blur(30px);
+    border: 1px solid white;
+    padding: 10px;
+    max-width: 90%;
+    margin: auto;
+}
+
+.focus h1 {
+    text-align: center;
+    font-weight: 400;
+    color: white;
+    text-shadow: 4px 3px rgba(0, 0, 0, 0.404);
+}
+
+
+* {box-sizing:border-box}
+
+
+.slideshow-container {
+  max-width: 900px;
+  position: relative;
+  margin: auto;
+}
+
+
+.mySlides {
+  display: none;
+}
+
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+
+@media screen and (min-width: 900px) {
+    .focus h1 {
+        text-shadow: 4px 3px rgba(0, 0, 0, 0.404);
+        font-size: 70px;
+        font-weight: 400;
+        color: white;
+    }
+}
+
+
