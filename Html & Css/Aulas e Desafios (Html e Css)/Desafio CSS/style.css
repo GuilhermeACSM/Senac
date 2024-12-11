@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: lazy;
+    src: url(fonts/Lazy\ Coffee.otf) format(opentype), url(fonts/Lazy\ Coffee.ttf) format(truetype);
+}
+
+@keyframes animated{
+    to {background-position-x: 161px;}
+}
+
+*{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+
+body {
+      background-image: linear-gradient(to right, #D9965B, white, #D9965B);
+      margin: auto;
+      
+    
+}
+
+a:defined {
+    color: #D9965B;
+}
+
+a:visited {
+    color: #D9965B;
+}
+
+.títuloMain {
+    color: #73321A;
+}
+
+#artext {
+    background: linear-gradient(to left, #73321A, #D9965B);
+    background-clip: text;
+    display: inline;
+    color: transparent;
+    animation: animated 4s linear infinite;
+}
+
+
+h2 {
+    font-style: italic;
+    text-decoration: underline;
+    font-family: Lazy;
+    
+}
+
+header {
+    background-color: #73321A;
+    padding: 10px;
+    text-align: center;
+    
+    
+}
+
+nav {
+    text-align: center;
+    margin: 10px;
+    word-spacing: 20px;
+}
+
+main {
+    background-color: #EACFB0;
+    text-align: center;
+    padding: 20px;
+    border-radius: 5px;
+    margin: auto;
+    box-shadow: 5px 5px 5px #775232;
+    width: 600px;
+    
+}
+
+div {
+    text-align: left;
+}
+
+p {
+    text-align: justify;
+}
+
+.imagemLogo {
+    margin-left: 450px;
+}
+
+.imageHeader {
+    border-radius: 50px;
+}
+
+footer {
+    background-color: #73321A;
+    padding: 40px;
+    text-align: center;
+    word-spacing: 20px;
+   
+}
+

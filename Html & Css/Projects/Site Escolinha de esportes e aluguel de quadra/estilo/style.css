@@ -1,0 +1,414 @@
+@charset "UTF-8";
+
+
+
+@font-face {
+    font-family: "Panton";
+    src: url('../fontes/panton.black-caps.otf') format(opentype);
+}
+@font-face {
+    font-family: "Pattern";
+    src: url(../fontes/PatternBlank-Light.otf);
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    
+}
+
+:root {
+    --rose: #FCECEA;
+    --vermelho: #E03C31;
+    --laranja: #FF6A13;
+    --preto: #1E1C1D;
+
+    --fontes-panton: "Panton", sans-serif;
+    --fontes-pattern: "Pattern", sans-serif;
+
+}
+
+/*----------------------Home---------------------------*/
+
+h4 {
+    font-family: var(--fontes-pattern);
+    font-size: 0.9em;
+}
+
+a:visited {
+    color: var(--rose);
+}
+
+a:defined {
+    color: var(--rose);
+}
+
+a:link {
+    text-decoration: none;
+}
+
+header {
+    background-color: var(--preto);
+    text-align: center;
+    padding: 25px;
+}
+
+header > img {
+    width: 100px;
+    border-radius: 15px;
+    float: left;
+}
+
+header > h1 {
+    font-size: 3em;
+    font-family: var(--fontes-panton);
+    text-align: center;
+    color: var(--rose);
+}
+
+header > p {
+    font-family: var(--fontes-pattern);
+    text-align: center;
+    color: var(--rose);
+}
+
+nav {
+    text-align: center;
+    word-spacing: 30px;
+    display: inline-block;
+    font-family: var(--fontes-pattern);
+    text-transform: uppercase;
+    font-size: 0.8em;
+}
+
+nav a:hover{
+    color: var(--laranja);
+    font-weight: bolder;
+}
+
+.menu-lateral {
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.nav-a {
+    display: block;
+    text-align: left;
+    word-spacing: 30px;
+    font-family: var(--fontes-pattern);
+    text-transform: uppercase;
+    font-size: 0.8em;
+    background-color: var(--preto);
+    width: 120px;
+    height: 30px;
+    padding: 10px 0 0 10px;
+}
+
+.nav-a:hover{
+    color: var(--laranja);
+    font-weight: bolder;
+}
+
+#logo-grande {
+    display: block;
+    border-radius: 5px;
+    margin: auto;
+    margin-top: 10px;
+    max-width: 700px;
+    min-width: 320px;
+}
+
+.main-1 {
+    width: 100%;
+    height: 862px;
+    background-image: url(../imagens/futebol-bg.jpg);
+    background-color: black;
+    margin-bottom: -10px;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+.main-1 > img {
+    width: 100%;
+}
+
+footer {
+    background-color: var(--rose);
+    color: var(--preto);
+    height: 100px;
+}
+
+footer > p {
+    padding: 10px;
+    display: inline-block;
+    margin: 5px;
+}
+
+.imagem-footer {
+    display: inline-block;
+    width: 30px;
+    float: right;
+    margin: 10px;
+}
+
+/*-------------------Infraestrutura-----------------------------------*/
+section {
+    margin-top: 10px;
+}
+
+.parallax-img-futebol {
+    background-image: url(../imagens/campo-futebol-aereo.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    height: 400px;
+}
+
+.parallax-img-futevolei {
+    background-image: url(../imagens/futevolei.jpeg);
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    height: 400px;
+}
+
+.parallax-img-basquete {
+    background-image: url(../imagens/basquete.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    height: 400px;
+}
+
+.parallax-text {
+    width: 300px;
+    height: 380px;
+    text-align: justify;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.801);
+    padding: 10px;
+    font-family: var(--fontes-pattern);
+    font-size: 0.8em;
+}
+
+.parallax-text > h1 {
+    text-transform: uppercase;
+    font-family: var(--fontes-panton);
+    margin-bottom: 10px;
+}
+
+
+
+/*---------------------Horários-------------------------------------------*/
+body {
+    background-color: black;
+}
+
+
+
+.main-horario {
+    max-width: 800px;
+    min-width: 320px;
+    margin: auto;
+    background-color: var(--preto);
+}
+
+.container-table {
+    background-color: var(--rose);
+    margin: auto;
+    padding: 10px;
+}
+
+caption {
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-variant: small-caps;
+    padding: 10px;
+    font-family: var(--fontes-panton);
+    font-size: 2em;
+}
+
+.carrinho {
+    width: 50px;
+    float: right;
+    margin: 10px 10px 0px 0px ;
+}
+
+table {
+    border-collapse: collapse;
+    margin: auto;
+    width: 100%;
+}
+
+thead {
+    border: solid 1px black;
+    background-color: black;
+    color: var(--laranja);
+    text-align: left;
+    font-family: var(--fontes-panton);
+}
+
+td {
+    border:  1px;
+    padding: 10px;
+    font-family: var(--fontes-pattern);
+}
+
+
+
+.td1 {
+    border-radius: 5px 0 0 5px;
+}
+
+.td4 {
+    border-radius: 0 5px 5px 0;
+}
+
+th {
+    padding: 10px;
+}
+
+.tr:hover {
+    background-color: rgba(0, 0, 0, 0.185);
+}
+
+
+
+tbody>tr:nth-child(even) {
+    background-color: rgb(255, 214, 138);
+}
+
+tbody>tr:nth-child(odd) {
+    background-color: var(--laranja);
+}
+
+
+
+/*-----------------Pré-Matrícula-------------*/
+.container-body {
+    background-color: var(--preto);
+}
+
+#main-3 {
+    margin: auto;
+    max-width: 700px;
+    min-width: 320px;
+    margin-bottom: 20px;
+    background: var(--laranja);
+    padding: 10px;
+    box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.13);
+    border-radius: 5px;
+}
+
+#main-3 > h1 {
+    text-align: center;
+    font-family: var(--fontes-panton);
+    color: var(--rose);
+}
+
+h2 {
+    font-family: var(--fontes-pattern);
+    font-size: 1.5em;
+    margin-top: 15px;
+}
+
+h3 {
+    margin-top: 15px;
+    font-family: var(--fontes-panton);
+    font-size: 1em;
+}
+
+h4 {
+    margin-top: 20px;
+    font-weight: bolder;
+    font-family: var(--fontes-panton);
+}
+
+input[type=text] {
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+}
+
+::-webkit-input-placeholder {
+    font-weight: lighter;
+    padding: 10px;
+}
+
+input[type=text]:focus {
+    outline: none;
+}
+
+input[type=email] {
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+}
+
+input[type=email]:focus {
+    outline: none;
+}
+
+input[type=date] {
+    width: 20%;
+    height: 30px;
+    border-radius: 5px;
+}
+
+input[type=date]:focus {
+    outline: none;
+}
+
+.radio {
+    padding: 10px;
+    font-family: var(--fontes-panton);
+    font-size: 0.8em;
+}
+
+input[type=submit] {
+    color: var(--laranja);
+    background-color: var(--preto);
+    padding: 5px;
+    border-radius: 5px;
+    
+}
+
+/*-----------------Contato---------------*/
+
+
+.h1-contato {
+    color: var(--rose);
+    text-align: center;
+    font-size: 2.5em;
+    font-family: var(--fontes-panton);
+}
+
+.p-contato {
+    font-family: var(--fontes-pattern);
+    font-size: 0.9em;
+    text-align: center;
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    resize: none;
+    border-radius: 5px;
+}
+
+input[type=tel] {
+    width: 50%;
+    height: 25px;
+}
+
+iframe {
+    display: block;
+    margin: auto;
+    width: 100%;
+}

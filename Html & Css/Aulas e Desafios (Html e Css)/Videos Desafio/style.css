@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+body{
+    background-color: black;
+    text-align: center;
+}
+
+h1{
+    color: white;
+    font-size: 40px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+button{
+    color: blue;
+    }

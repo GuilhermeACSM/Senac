@@ -1,0 +1,614 @@
+@charset "UTF-8";
+
+* {
+    padding: 0%;
+    margin: 0%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+
+
+/*-------------------------------------------------------- GERAL --------------------------------------------------*/
+/*------------------- BODY ----------------------*/
+.body-geral {
+    background-color: #0F0F0F;
+}
+
+
+
+/*------------------ HEADER -----------------------------*/
+header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "logo hamburguer"
+                        "null ul";
+                        row-gap: 10px;
+    height: 60px;
+    padding: 10px 0 10px 20px;
+}
+
+.div-logo {
+    font-size: 1.3em;
+    grid-area: logo;
+    align-self: center;
+}
+
+.div-logo > a {
+    text-decoration: none;
+    color: orangered;
+    font-size: 0.7em;
+    width: fit-content;
+}
+
+.div-logo >a:hover {
+    color: rgba(255, 68, 0, 0.623);
+}
+
+menu {
+    display: none;
+    grid-area: ul;
+    justify-self: end;
+}
+
+.menu-ul {
+    grid-area: ul;
+    list-style-type: none;
+    text-align: right;
+    padding-right: 10px;
+    z-index: 1;
+}
+
+.menu-li {
+    margin-right: 10px;
+}
+
+.menu-li > a {
+    text-decoration: none;
+    font-family: var(--fontLight);
+    color: white;
+}
+
+.menu-li > a:hover {
+    color: orangered;
+}
+
+#menu-hamburguer {
+    display: grid;
+    align-items: center;
+    justify-items: right;
+    padding-right: 15px;
+    cursor: pointer;
+    color: white;
+}
+
+
+
+
+/*------------------------ MAIN -------------------------------*/
+.main-geral {
+    margin: auto;
+
+}
+
+/*------------------------- FOOTER ----------------------------*/
+.text-footer {
+    text-align: center;
+    color: white;
+    font-size: 2em;
+}
+
+.container-input {
+    display: flex;
+    justify-content: center;
+}
+
+.input-footer {
+    margin: auto;
+    width: 40%;
+    height: 30px;
+    border: solid 2px #0f0f0f;
+    background-color: white;
+}
+
+
+.button-enviar { 
+    padding: 5px;
+    text-align: center;
+}
+
+.button-footer {
+    cursor: pointer;
+    color: white;
+    background-color: #0f0f0f;
+    border: solid 2px white;
+    height: 30px;
+    width: 40%;
+}
+
+
+footer p {
+    padding: 4px;
+    background-color: black;
+    text-align: center;
+    color: white;
+}
+
+.container-social {
+    display: flex;
+    justify-content: center;
+}
+
+.itens-social img{
+    padding: 10px;
+    width: 30px;
+    border-radius: 100%;
+}
+
+
+
+
+/*-------------------------------------------------------- SOMENTE PAG HOME --------------------------------------------------*/
+/*---------Article 1--------------*/
+.parallax-warcraft{
+    background-image: url(../img/warcraft.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    height: 400px;
+}
+
+.parallax-text {
+    width: 300px;
+    height: 380px;
+    text-align: justify;
+    color: white;
+    background-color: #0f0f0fb6;
+    padding: 10px;
+    font-family: var(--fontes-pattern);
+    font-size: 0.8em;
+}
+
+.parallax-text > h2 {
+    text-transform: uppercase;
+    font-family: var(--fontes-panton);
+    margin-bottom: 10px;
+}
+
+.p-disp {
+    color: rgba(255, 255, 255, 0.548);
+}
+
+#compra-botao a {
+    text-decoration: none;
+    display: block;
+    color: white;
+}
+
+#compra-botao a:hover {
+    color: orangered;
+}
+
+#compra-botao {
+    position: absolute;
+    margin-top: 20px;
+    padding: 6px;
+    width: 280px;
+    text-align: center;
+    background-color: #0f0f0f;
+}
+
+
+/*----------------Article 2---------------*/
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+}
+
+.container-text {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    padding: 10px;
+}
+
+.home-image:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.493), 0 6px 20px 0 rgba(0, 0, 0, 0.301);
+}
+
+.text-itensL {
+    color: white;
+    font-size: 1.3em;
+}
+
+.text-itensA  a{
+    padding: 8px;
+    text-decoration: none;
+    font-size: 1.3em;
+    color: orangered;
+}
+
+
+
+/*--------------Article 3------------*/
+.title-iforma {
+    text-align: center;
+    color: white;
+    padding: 15px;
+}
+
+.text-informa {
+    color: rgba(255, 255, 255, 0.788);
+    text-align: center;
+}
+
+.link-informa a{
+    display: flex;
+    justify-content: center;
+    color: orangered;
+    padding: 15px;
+}
+
+
+/*-------------iframe principal Home-------------*/
+.div-iframe {
+    background-color: black;
+    margin: 0px -20px 30px -20px;
+    padding: 20px;
+    padding-bottom: 56.5%;
+    position: relative;
+}
+
+.div-iframe > iframe {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+
+}
+
+/*-------------------------------------------------- SOMENTE PAG COMPRA -------------------------------------------------------*/
+/*---------------IFRAMES COMPRA------------------------*/
+iframe {
+    width: 100%;
+    height:500px;
+}
+
+/*Nav do iframe da pág Compra*/
+.article-compra {
+    color: white;
+    text-align: center;
+}
+
+.title1-compra {
+    font-size: 2em;
+}
+
+nav {
+    margin-top: 10px;
+    background-color: orangered;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+nav > a {
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #0F0F0F;
+    text-decoration: none;
+    margin: 10px;
+}
+
+/*Iframes compra css*/
+.section-frame {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.article-basic {
+    background-color: rgba(255, 255, 255, 0.11);
+    border-radius: 5px;
+    color: white;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+}
+
+.div-textCompra {
+    display: block;
+    text-align: center;
+}
+
+.titlecard-frame01 {
+    font-size: 1.3em;
+    text-transform: uppercase;
+}
+
+.title-cardpreço {
+    color: orangered;
+}
+
+.div-preço {
+    display: flex;
+    justify-content: center;
+    margin: 15px;
+}
+
+.lista-frame {
+    list-style-position: inside;
+}
+
+.article-basic:hover {
+    background-color: rgba(255, 255, 255, 0.137);
+}
+
+
+
+/* --------- CATALOGO ---------- */
+.galeria-catalogo {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+
+/* card de fotografia */
+.galeria-catalogo > article {
+    padding: 10px;
+    background-color: white;
+    width: 200px;
+    margin: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.493), 0 6px 20px 0 rgba(0, 0, 0, 0.301);
+}
+
+/* Foto do Lançamento */
+.galeria-catalogo > article > img {
+    width: 200px;
+    opacity: 1;
+    transition-duration: 0.5s;
+    margin-bottom: -4px;
+}
+
+.galeria-catalogo > article > img:hover {
+    opacity: 0.5;
+}
+
+.galeria-catalogo > article:hover {
+    background-color: black;
+}
+
+.section-cat {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-cat {
+    text-align: justify;
+}
+
+.container-cat > .subtitle {
+    font-size: 1.2em;
+    color: rgba(255, 255, 255, 0.541);
+}
+
+.container-cat > h1 {
+    font-size: 2.5em;
+    color: orangered;
+}
+
+.container-cat > p {
+    margin: 0;
+    color: white;
+}
+
+.container-cat button {
+    background-color: #ff6600;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.container-cat button a {
+    color: white;
+    text-decoration: none;
+}
+
+.container-cat button:hover {
+    background-color: #e65c00;
+}
+
+
+/*-------------------------------------------------------- MEDIA QUERY -------------------------------------------------------*/
+/*------------------Telas Grandes--------------------------*/
+@media screen  and (min-width: 1201px) and (max-width: 8000px)  {
+    header {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-areas: "logo menu";
+        height: 40px;
+    }
+    
+    #menu-hamburguer {
+        display: none;
+    }
+
+    menu {
+        display: inline-block;
+        grid-area: menu;
+        width: 600px;
+        align-self: center;
+    }
+
+    .menu-ul {
+        width: 100%;
+    }
+
+    .menu-ul > li > a {
+        font-size: 1.2em;
+    }
+
+    .menu-li {
+        display: inline-block;
+        font-size: 0.9em;
+        list-style-type: none;
+        padding: 0 5% 0 0;
+    }
+
+
+    .section-frame {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #parg-compra {
+        padding: 3px;
+        display: block;
+        margin: auto;
+        text-align: center;
+        width: 500px;
+    }
+
+
+    .iframegeral {
+        margin-top: 100px;
+        height: 500px;
+}
+
+
+}
+
+
+
+/*------------------Tablet e Desktop--------------------------*/
+@media screen and (min-width: 800px) and (max-width: 1200px){
+    header {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-areas: "logo menu";
+        height: 40px;
+    }
+    
+    #menu-hamburguer {
+        display: none;
+    }
+
+    menu {
+        display: inline-block;
+        grid-area: menu;
+        width: 550px;
+        align-self: center;
+    }
+
+    .menu-ul {
+        width: 100%;
+    }
+
+    .menu-ul > li > a {
+        font-size: 1.2em;
+    }
+
+    .menu-li {
+        display: inline-block;
+        font-size: 0.9em;
+        list-style-type: none;
+        padding: 0 5% 0 0;
+    }
+
+
+    .section-frame {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+    }
+
+    #parg-compra {
+        padding: 3px;
+        display: block;
+        margin: auto;
+        text-align: center;
+        width: 500px;
+    }
+
+    .iframegeral {
+        margin-top: 30px;
+        height: 700px;
+}
+
+    .main-iframe {
+        height: auto;
+    }
+
+
+/*--Footer tela grande--*/
+    footer .input-footer {
+        width: 300px;
+    }
+
+    footer .button-footer {
+        width: 300px;
+    }
+}
+
+
+
+/*------------------Telas Pequenas--------------------------*/
+@media  screen and (max-width: 799px) {
+    header {
+        height: 40px;
+    }
+
+    .menu-ul {
+        padding: 5px;
+        background-color: #0f0f0f;
+    }
+
+    .article-compra {
+        margin-top: 70px;
+}
+
+    /*IFRAME PAG COMPRA*/
+    .iframegeral {
+        height: 730px;
+}   
+
+    #parg-compra {
+        padding: 3px;
+        display: block;
+        margin: auto;
+        text-align: center;
+        width: 500px;
+}
+
+    .section-cat {
+        display: flex;
+        align-items: center;
+        height: 50vh;
+        max-width: 600px;
+    }
+
+    .galeria-catalogo > article {
+        margin: 3px;
+    }
+
+}

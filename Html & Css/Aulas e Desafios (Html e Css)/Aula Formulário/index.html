@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo/style.css">
+    <title>Formulário</title>
+</head>
+
+<body>
+    <main>
+        <form action="formulario.php" method="POST" autocomplete="on">
+            <fieldset>
+                <legend>Dados Pessoais</legend>
+                <div>
+                    <label for="nome">Nome Completo:</label>
+                    <div>
+                        <input class="inputpessoais" type="text" name="nome" id="nome" required maxlength="50" placeholder="Nome Completo" autocomplete= "name">
+                    </div>
+                </div>
+                <div>
+                    <label for="idade">Idade:</label>
+                    <div>
+                        <input class="inputpessoais" type="number" name="idade" id="idade" min="18" max="67" placeholder="18 a 67" step="1">
+                    </div>
+                </div>
+                <div>
+                    <label for="e-mail">E-mail:</label>
+                    <div>
+                        <input class="inputpessoais" type="email" name="e-mail" id="e-mail" placeholder="**********@gmail.com" autocomplete="email" required>
+                    </div>
+                </div>
+                <div>
+                    <label for="telefone">Telefone:</label>
+                    <div>
+                        <input class="inputpessoais" type="tel" name="telefone" id="telefone" autocomplete="tel" pattern="^\(\d{2}\)\d{4,5}-\d{4}$" required placeholder="(xx)xxxxx-xxxx">
+                    </div>
+                </div>
+                <div>
+                    <label for="masc">Masculino</label>
+                    <input type="radio" name="sexo" id="masc">
+        
+                    <label for="fem">Feminino</label>
+                    <input type="radio" name="sexo" id="fem">
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Datas:</legend>
+                <div>
+                    <label class="datas" for="mes">Período de inscrição:</label>
+                    <div>
+                        <input type="month" name="mes" id="mes" value="2024-06" min="2024-01" max="2024-06">
+                    </div>
+                </div>
+                <div>
+                    <label class="datas" for="datah">Data da inscrição:</label>
+                    <div>
+                        <input type="date" name="data" id="data" min="2024-01-01" max="2024-06-30">
+                    </div>
+                </div>
+                <div>
+                    <label class="datas" for="hora">Horário da Prova</label>
+                    <div>
+                        <input type="time" name="hora" id="hora" value="08:00">
+                    </div>
+                </div>
+                <div>
+                    <label class="datas" class="datas" for="icor">Cores:</label>
+                    <div>
+                        <input type="color" name="cor" id="icor" value="000000">
+                    </div>
+                </div>
+                <div>
+                    <label class="datas" for="nivel">Satisfação:</label>
+                    <div>
+                        <input type="range" name="nivel" id="nivel" min="0" max="10" value="9" oninput="valor.innerHTML = Number(nivel.value)">
+                        <output id="valor">9</output>
+                    </div>
+                </div>
+                <div>
+                    <label for="arquivos">Envie aqui fotos dos documentos:</label>
+                    <div>
+                        <input type="file" name="docs" id="docs">
+                    </div>
+                </div>
+                <div>
+                    <label for="estados">Estados:</label>
+                    <div>
+                        <select name="estado" id="estado">
+                            <option value="" selected>------Escolha------</option>
+                            <optgroup label="Região Sudeste">
+                                <option value="SP">São Paulo</option>
+                                <option value="RJ">Rio de Janeiro</option>
+                                <option value="MG">Minas Gerais</option>
+                                <option value="ES">Espírito Santo</option>
+                            </optgroup>
+                            <optgroup label="Região Sul">
+                                <option value="PR">Paraná</option>
+                                <option value="SC">Santa Catarina</option>
+                                <option value="RS">Rio Grande do Sul</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                </div>
+                    <div>
+                        <label for="prof">Profissão:</label>
+                        <div>
+                            <input type="text" name="prof" id="prof" list="listprof">
+                            <datalist id="listprof">
+                                <option value="ADM">Administrador</option>
+                                <option value="DEV">Desenvolvedor</option>
+                                <option value="PROF">Professor</option>
+                            </datalist>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="msg">Mensagem:</label>
+                        <div>
+                            <textarea name="msg" id="msg" cols="30" rows="10"></textarea>
+                        </div>
+                    </div>
+            </fieldset>
+            <fieldset>
+                <legend>Somando Números:</legend>
+                <label for="n1">Número 1:</label>
+                <input type="number" id="n1" min="0" max="50" required oninput="soma.innerHTML = Number(n1.value) + Number(n2.value)">
+                <label for="n2">Número 2:</label>
+                <input type="number" id="n2" min="0" max="50" required oninput="soma.innerHTML = Number(n1.value) + Number(n2.value)">
+                <label for="soma">Soma:</label>
+                <output id="soma">0</output>
+            </fieldset>
+            <div>
+                <input type="submit" value="Enviar">
+                <input type="reset" value="Limpar">
+            </div>
+        </form>
+    </main>
+
+</body>
+
+</html>

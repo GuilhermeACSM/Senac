@@ -1,0 +1,173 @@
+@charset "UTF-8";
+
+*{
+    padding: 0px;
+    margin: 0px;
+    
+}
+
+:root {
+    --rose: #FCECEA;
+    --vermelho: #E03C31;
+    --laranja: #FF6A13;
+    --preto: #1E1C1D;
+
+    --fontes-panton: "Panton", sans-serif;
+    --fontes-pattern: "Pattern", sans-serif;
+
+}
+
+.container-body {
+    background-color: var(--rose);
+}
+
+h4 {
+    font-family: var(--fontes-pattern);
+    font-size: 0.9em;
+}
+
+a:visited {
+    color: var(--rose);
+}
+
+a:defined {
+    color: var(--rose);
+}
+
+a:link {
+    text-decoration: none;
+}
+
+header {
+    background-color: var(--preto);
+    text-align: center;
+    padding: 25px;
+}
+
+header > img {
+    width: 100px;
+    border-radius: 15px;
+    float: left;
+}
+
+header > h1 {
+    font-size: 3em;
+    font-family: var(--fontes-panton);
+    text-align: center;
+    color: var(--rose);
+}
+
+header > p {
+    font-family: var(--fontes-pattern);
+    text-align: center;
+    color: var(--rose);
+}
+
+nav {
+    text-align: center;
+    display: inline-block;
+    font-family: var(--fontes-pattern);
+    text-transform: uppercase;
+    font-size: 0.8em;
+    
+}
+
+nav a:hover{
+    color: var(--laranja);
+    font-weight: bolder;
+}
+
+.nav-iframe {
+    display: block;
+    background-color: rgba(0, 0, 0, 0.747);
+    padding: 10px;
+    margin: auto;
+    text-align: center;
+    
+}
+
+iframe {
+    width: 100%;
+    height: 750px;
+}
+
+nav > a {
+    text-decoration: none;
+    margin: 10px;
+    
+}
+
+.main-horario {
+    max-width: 800px;
+    min-width: 320px;
+    margin: auto;
+}
+
+.container-table {
+    background-color: rgba(248, 196, 147, 0.774);
+    margin: auto;
+    padding: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    margin: auto;
+    width: 100%;
+    
+}
+
+thead {
+    border: solid 1px black;
+    background-color: var(--preto);
+    color: var(--laranja);
+    text-align: left;
+    font-family: var(--fontes-panton);
+}
+
+td {
+    border:  1px;
+    padding: 10px;
+    font-family: var(--fontes-pattern);
+}
+
+th {
+    padding: 10px;
+}
+
+.tr:hover {
+    background-color: rgba(0, 0, 0, 0.185);
+}
+
+tbody>tr:nth-child(even) {
+    background-color: rgb(245, 215, 159);
+}
+
+tbody>tr:nth-child(odd) {
+    background-color: var(--laranja);
+}
+
+#container-body2 {
+    background-color: var(--preto);
+}
+
+footer {
+    background-color: var(--rose);
+    color: var(--preto);
+    width: 100%;
+    height: 100px;
+}
+
+footer > p {
+    padding: 10px;
+    display: inline-block;
+    margin: 5px;
+}
+
+.imagem-footer {
+    display: inline-block;
+    width: 30px;
+    float: right;
+    margin: 10px;
+}
+
+

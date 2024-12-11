@@ -1,0 +1,158 @@
+@charset "UTF-8";
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+    background: rgba(255, 255, 255, 0.363);
+    margin: 100px auto;
+    text-align: center;
+    width: 500px;
+    height: auto;
+}
+
+h1, p {
+    background: rgba(0, 0, 0, 0.767);
+    color: white;
+}
+
+/*-----------------Celular-----------------*/
+@media screen  and (max-width: 600px) {
+body {
+    background-image: url(../img/back-phone.jpg);
+}
+
+.tablet {
+    display: none;
+}
+
+.pc {
+    display: none;
+}
+
+.tv {
+    display: none;
+}
+
+.print {
+    display: none;
+}
+
+}
+
+
+/*-----------------Tablet-----------------*/
+@media screen  and (min-width: 600px) and (max-width: 800px) {
+body {
+    background-image: url(../img/back-tablet.jpg);
+}
+
+.phone {
+    display: none;
+}
+
+.pc {
+    display: none;
+}
+
+.tv {
+    display: none;
+}
+
+.print {
+    display: none;
+}
+
+}
+
+
+/*-----------------Computador-----------------*/
+@media screen  and (min-width: 800px) and (max-width: 1000px) {
+body {
+    background-image: url(../img/back-pc.jpg);
+}
+
+
+.phone {
+    display: none;
+}
+
+.tablet {
+    display: none;
+}
+
+.tv {
+    display: none;
+}
+
+.print {
+    display: none;
+}
+
+}
+
+
+/*-----------------Televisão-----------------*/
+@media screen  and (min-width: 1000px) and (max-width: 8000px) {
+body {
+    background-image: url(../img/back-tv.jpg);
+}
+
+.phone {
+    display: none;
+}
+
+.tablet {
+    display: none;
+}
+
+.pc {
+    display: none;
+}
+
+.print {
+    display: none;
+}
+
+}
+
+
+/*-----------------Print-----------------*/
+@media print {
+main::after {
+    content: 'Essa impressão foi feita através de mim.';
+    text-decoration: overline;
+}
+
+#id-print {
+    width: 100%;
+}
+
+h1, p {
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.phone {
+    display: none;
+}
+
+.tablet {
+    display: none;
+}
+
+.pc {
+    display: none;
+}
+
+.tv {
+    display: none;
+}
+
+
+}
+
+

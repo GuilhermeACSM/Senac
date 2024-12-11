@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+body {
+    background-color: rgb(255, 255, 255);
+}
+
+
+table{
+    box-shadow: 2px 3px 3px 2px black;
+}
+
+caption {
+    font-weight: bolder;
+    background-color: rgb(194, 221, 195);
+    border: 1px solid black;
+}
+
+th {
+    text-align: end;
+    font-size: 50px;
+    background-color: rgb(194, 221, 195);
+    border-radius: 5px;
+}
+
+th,td{
+    border: 1px solid black;
+    width: 30px;
+    height: 55px;
+}
+
+td {
+    font-weight: bolder;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.664);
+    color: rgb(255, 255, 255);
+    border-radius: 4px;
+}
+
+td:hover {
+    background-color: rgb(135, 135, 241);
+}
+
+.laranja {
+    background-color: orangered;
+}

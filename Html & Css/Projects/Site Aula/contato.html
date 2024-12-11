@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos/style.css">
+    <link rel="shortcut icon" href="Imagens/favicon.ico" type="image/x-icon">
+    <title>Site Aula</title>
+</head>
+
+<body>
+    <header>
+        <picture>
+            <img class="Logo-Apple" src="Imagens/favicon.ico" alt="Logo da Apple">
+        </picture>
+        <h1>Apple</h1>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="dispositivos.html">Dispositivos</a>
+        <a href="contato.html">Contato</a>
+    </nav>
+    <br>
+    <main class="main-2">
+        <form action="enviar.html">
+            <div>
+                <label for="fname">
+                    <h4>Nome:</h4>
+                </label>
+                <div>
+                    <input type="text" id="fname" name="fname" name="" placeholder="Insiria seu Nome aqui.">
+                </div>
+            </div>
+            <br>
+            <div>
+                <label for="lname">
+                    <h4>Sobrenome:</h4>
+                </label>
+                <div>
+                    <input type="text" id="lname" name="lname" name="" placeholder="Insiria seu Sobrenome aqui.">
+                </div>
+            </div>
+            <br>
+            <div>
+                <label for="email">
+                    <h4>E-mail:</h4>
+                </label>
+                <div>
+                    <input type="email" id="email" name="email" placeholder="Insiria seu E-mail aqui.">
+                </div>
+            </div>
+            <br>
+            <div>
+                <label for="datemin">
+                    <h4>Coloque a sua data de aniversário (01/01/1800)):</h4>
+                </label>
+                <div>
+                    <input type="date" id="datemin" name="datemin" min="1800-01-02">
+                </div>
+            </div>
+            <br>
+            <div>
+                <div>
+                    <label for="radio">
+                        <h3>Sexo:</h3>
+                    </label>
+                </div>
+                    
+                    <label class="radio" for="homem"> <input type="radio"name="Question"> Homem</label>
+                    <label class="radio" for="mulher"><input type="radio"name="Question"> Mulher</label>
+                    <label class="radio" for="Outro"> <input type="radio"name="Question"> Outro</label>
+            </div>
+            <br>
+            <div>
+                <label for="message">
+                    <h4>Mensagem:</h4>
+                </label>
+                <div>
+                    <textarea name="message" rows="10" cols="30"> </textarea>
+                </div>
+            </div><br>
+            <div>
+                <input type="submit" name="Concluir">
+            </div>
+        </form>
+    </main>
+
+    <footer>
+        <p>Site criado por <a href="https://www.instagram.com/acsmguilherme/" target="_blank" rel="external"
+                class="externo">Guilherme Augusto</a>.</p>
+    </footer>
+</body>
+
+</html>

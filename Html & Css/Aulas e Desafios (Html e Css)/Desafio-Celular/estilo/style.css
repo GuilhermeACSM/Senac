@@ -1,0 +1,96 @@
+@charset "UTF-8";
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+html, body {
+    height: 100vh;
+    width: 100vw;
+}
+
+body {
+    background: url(../imagens/fundo-madeira.jpg) no-repeat top center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+main {
+    height: 100vh;
+    position: relative;
+}
+
+section {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    height: 627px;
+    width: 311px;
+    background: url(../imagens/frame-iphone.png) no-repeat;
+}
+
+iframe#tela {
+    position: relative;
+    top: 80px;
+    left: 22px;
+    width: 269px;
+    height: 471px;
+}
+
+nav#redes-sociais {
+    text-align: right;
+}
+
+/*(box-sizing: border-box;) Serve para deixar a borda dos icones e links ajustada e não estourar na hora de clicar.*/
+nav#redes-sociais img {
+    width: 50px;
+    border-radius: 100%;
+    margin: 10px;
+    box-shadow: 2px 2px 5px hwb(0 0% 100% / 0.400);
+    box-sizing: border-box;
+}
+
+nav#redes-sociais img:hover{
+    border: 2px solid rgba(255, 255, 255, 0.603);
+}
+
+
+/*-------------home------------------*/
+.home {
+    width: 100vw;
+    height: 100vh;
+    background: black url(../imagens/tela-home.jpg) no-repeat top center;
+    background-size: cover;
+}
+
+
+/*-----------------Redes Sociais----------------------*/
+::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+
+.redes > img {
+    width: 100%;
+    height: 100%;
+    margin-bottom: -10px;
+}
+
+.redes a {
+    display: block;
+    background-color: red;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+
+
