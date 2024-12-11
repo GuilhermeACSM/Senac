@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" type="text/javascript" defer></script>
+    <title>Ex - idades</title>
+</head>
+
+<body>
+    <h1>Verificador de Idade</h1>
+    <section id="section">
+
+        <p class="parag_ano">Ano Nascimento: 
+            <input type="number" placeholder="De 1900 à 2023" min="1900" max="2023" required class="idade" id="ano">
+        </p>
+
+        <p class="parag_sexo">Sexo: 
+            <input type="radio" name="sexo" id="M" value="Masculino">
+            <label for="M">Masculino</label>
+
+            <input type="radio" name="sexo" id="F" value="Feminino">
+            <label for="F">Feminino</label> 
+        
+            <input type="button" value="Verificar" class="btn"  id="verify" onclick="clicar()">
+        </p>
+
+        <img src="#" alt="Imagem" id="imagem">
+        <p id="parag"></p>
+    </section>
+    <p>© Guilherme Augusto</p>
+</body>
+
+
+</html>

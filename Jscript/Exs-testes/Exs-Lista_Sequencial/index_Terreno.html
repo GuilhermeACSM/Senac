@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex-Lista Sequencial-TERRENO</title>
+</head>
+
+<body>
+    <script>
+        //Recebendo os dados
+        let x = Number.parseFloat(window.prompt('Digite a largura do terreno '))
+        let y = Number.parseFloat(window.prompt('Digite o comprimento do terreno: '))
+        let z = Number.parseFloat(window.prompt('Digite o valor do metro quadrado'))
+
+        //Declarando as variaveis finais com as contas
+        let area = x * y
+        let preco = area * z
+
+        //Resultado Final
+        alert(`A largura do terreno é de ${area.toFixed(2).replace('.',',')} e o preco do terreno e de ${preco.toFixed(2).replace('.',',')}`)
+    </script>
+</body>
+
+
+</html>

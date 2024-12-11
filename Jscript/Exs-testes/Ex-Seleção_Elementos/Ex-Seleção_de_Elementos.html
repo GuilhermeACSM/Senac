@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício de Seleção de Elementos</title>
+</head>
+
+
+<body>
+    <!-- 'p' para fazer o getelElements pela TagName -->
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus et recusandae quae repudiandae provident, quod quasi consectetur exercitationem dignissimos eum ut sed quaerat. Mollitia voluptatem dignissimos eos sed sint aliquam.</p>
+
+    <h1 id="first-id">Olá, Mundo! Id</h1>
+
+    <h1 name="first-name">Olá, Mundo! Name</h1>
+    <h1 name="second-name">Olá, Mundo! Name</h1>
+
+    <h1 class="first-class">Olá, Mundo! Classe</h1>
+
+    <h1 class="first-query">Olá, Mundo! Query</h1>
+
+    <script>
+
+        // Elemento por Marca
+        let p1 = document.getElementsByTagName('p')[0]
+        p1.style.color = 'green'
+
+        // Elemento por Id
+        let di = document.getElementById('first-id')
+        di.style.background = 'black'
+        di.style.color = 'white'
+
+        /* Para mudar o texto use isso:  
+        document.write(variavel + .innerText = 'Tchau, mundo!') 
+        Ex:('Olá, mundo!' agora aparecera como 'Tchau, mundo!')
+
+        OU
+
+        document.write(variavel + .innerHTML = '<strong>Tchau, mundo!</strong>')
+        */
+
+        // Elemento por Nome
+        let n = document.getElementsByName('first-name')[0]
+        n.style.background = 'green'
+
+        let s = document.getElementsByName('second-name')[0]
+        s.style.background = 'pink'
+
+
+        // Elemento por Classe
+        let c = document.getElementsByClassName('first-class')[0]
+        c.style.background = 'yellow'
+
+
+        // Elemento por Seletor
+        let selet = document.querySelector('h1.first-query')
+        selet.style.background = 'blue'
+        selet.style.color = 'white'
+    </script>   
+</body>
+
+
+</html>

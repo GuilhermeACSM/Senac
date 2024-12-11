@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex-Lista Condicional-NOTAS</title>
+</head>
+
+<body>
+    <script>
+        let x = Number.parseFloat(prompt(`Digite a primeira nota: `))
+        let y = Number.parseFloat(prompt(`Digite a segunda nota: `))
+
+        media = x + y
+
+        Number.parseFloat(document.write(`<br> NOTA FINAL: ${media.toFixed(1)}`))
+        
+        if (media >= 60) {
+            Number.parseFloat(document.write(`<br> Aprovado`))
+        }
+        else {
+            Number.parseFloat(document.write(`<br> Reprovado`))
+        }
+    </script>
+</body>
+
+
+</html>

@@ -1,0 +1,83 @@
+@charset "UTF-8";
+
+body{
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: dodgerblue;
+}
+
+/*----Card----*/
+.card{
+    width: 50%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.425);
+}
+
+/*----adicionar----*/
+.adicionar{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.adicionar p{
+    font-size: 20px;
+}
+
+.adicionar input{
+    width: 50%;
+    height: 34px;
+    padding: 0 10px;
+}
+
+.adicionar button{
+    padding: 13px 35px;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+}
+
+/*----Selector----*/
+select{
+    width: 100%;
+    height: 20vh;
+    border-radius: 5px;
+    border: 1px solid black;
+    margin-bottom: 5px;
+}
+
+/*----Botão_de_finalisar----*/
+.card button{
+    padding: 13px 35px;
+    background-color: black;
+    cursor: pointer;
+    border: none;
+    color: white;
+    border-radius: 5px;
+}
+
+/*----Resultado----*/
+.resultado{
+    width: 100%;
+    height: 40vh;
+    border: 1px solid black;
+    margin-top: 5px;
+}
+
+.resultado p {
+    margin-left: 10px;
+}

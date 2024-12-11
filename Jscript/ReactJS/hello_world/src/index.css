@@ -1,0 +1,71 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+
+/*------------JOGO DA VELHA CSS---------*/
+body {
+  background-image: url('../src/jogo-da-velha.jpg');
+  color: white;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  text-align: center;
+  margin-top: 100px;
+  border: 1px solid white;
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 10px;
+  width: 500px;
+}
+
+
+.div-father {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.pai-linhas {
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.76);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+}
+
+.linha {
+  display: flex;
+}
+
+.quadrado {
+  background-color: #fff;
+  width: 100px;
+  height: 100px;
+  font-size: 4em;
+}
+
+button {
+  background-color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+  font-size: 1em;
+  color: black;
+  margin: auto;
+  height: 50px;
+  width: 130px;
+}
