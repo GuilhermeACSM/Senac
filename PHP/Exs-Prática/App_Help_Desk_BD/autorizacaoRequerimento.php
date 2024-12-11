@@ -1,5 +1,6 @@
 <?php
 require_once "validador_acesso.php";
+require_once "validador_acessoADM.php";
 require "conexao.php";
 
 if ($_GET['autorizar'] == 'sim') {

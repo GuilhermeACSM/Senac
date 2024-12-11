@@ -9,106 +9,9 @@ require_once "validador_acesso.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>App Help Desk</title>
 
+    <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <style>
-        /* Estilos gerais */
-        body {
-            background-color: #f8f9fa;
-            font-family: Arial, sans-serif;
-        }
-
-        .navbar {
-            margin-bottom: 20px;
-        }
-
-        .card-home {
-            padding: 20px;
-            margin: 0 auto;
-        }
-
-        .card-header {
-            font-weight: bold;
-            background-color: #343a40;
-            color: white;
-        }
-
-        .card-body {
-            text-align: center;
-        }
-
-        .row {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 20px;
-        }
-
-        .col-6 {
-            margin: auto;
-            justify-content: center;
-            padding: 10px;
-        }
-
-        .row a {
-            text-decoration: none;
-        }
-
-        .card img {
-            border-radius: 8px;
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .card p {
-            font-weight: 600;
-            color: #343a40;
-        }
-
-        /* Estilo do botão de sair */
-        .btn-sair {
-            background-color: #dc3545;
-            color: white;
-            border: none;
-            font-weight: bold;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-align: center;
-            transition: background-color 0.3s, transform 0.2s;
-        }
-
-        /* Efeito de hover no botão */
-        .btn-sair:hover {
-            background-color: #c82333;
-            transform: scale(1.05);
-        }
-
-        .btn-sair:focus {
-            outline: none;
-        }
-
-        /* Responsividade para dispositivos menores */
-        @media (max-width: 768px) {
-            .row {
-                flex-direction: column;
-            }
-
-            .col-6 {
-                width: 100%;
-                margin-bottom: 15px;
-            }
-        }
-
-        /* Responsividade para dispositivos maiores */
-        @media (min-width: 768px) {
-            .col-6 {
-                width: 100%;
-                margin-bottom: 15px;
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -130,58 +33,79 @@ require_once "validador_acesso.php";
     </nav>
 
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="card-home col-md-8">
+        <div class="row">
+            <div class="card-home">
                 <div class="card">
                     <div class="card-header">
                         Menu
                     </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <a href="abrir_chamado.php" class="col-6">
-                                <div class="card p-3 text-center">
-                                    <img src="img/formulario_abrir_chamado.png" width="70" height="70" alt="Abrir Chamado">
+                    <a id="link" href="abrir_chamado.php">
+                        <div class="container-card-gui">
+                            <div class="card-gui card-header">
+                                <div class="card-gui-img">
+                                    <img src="./img/formulario_abrir_chamado.png" width="70" height="70">
+                                </div>
+                                <div class="card-gui-p">
                                     <p>Abrir Chamado</p>
                                 </div>
-                            </a>
-                            <a href="consultar_chamado.php" class="col-6">
-                                <div class="card p-3 text-center">
-                                    <img src="img/formulario_consultar_chamado.png" width="70" height="70" alt="Consultar Chamado">
-                                    <p>Consultar Chamado</p>
-                                </div>
-                            </a>
-                            <a href="editar_arquivo.php" class="col-6">
-                                <div class="card p-3 text-center">
-                                    <img src="img/editar-arquivo.png" width="70" height="70" alt="Editar Arquivo">
-                                    <p>Editar Arquivo</p>
-                                </div>
-                            </a>
-                            <?php 
-                            $usuarioId = $_SESSION['id_usuario'];
-                            $usuarioPerfil = $_SESSION['perfil'];
+                            </div>
+                    </a>
+                    <a id="link" href="./consultar_chamado.php">
+                        <div class="card-gui card-header">
+                            <div class="card-gui-img">
+                                <img src="./img/formulario_consultar_chamado.png" width="70" height="70">
+                            </div>
+                            <div class="card-gui-p">
+                                <p>Consultar Chamado</p>
+                            </div>
+                        </div>
+                    </a>
+                    <?php
+                    $usuarioPerfil = $_SESSION['perfil'];
 
-                            if ($usuarioPerfil == 'administrador') { ?>
-                            <a href="autorizacao.php" class="col-6">
-                                <div class="card p-3 text-center">
-                                    <img src="img/autorizacaoOld.png" width="70" height="70" alt="Autorização">
-                                    <p>Autorização</p>
+                    if ($usuarioPerfil == 'administrador') { ?>
+
+                        <a id="link" href="./editar_arquivo.php">
+                            <div class="card-gui card-header">
+                                <div class="card-gui-img">
+                                    <img src="./img/editar-arquivo.png" width="70" height="70">
                                 </div>
-                            </a>
-                            <a href="usuarios.php" class="col-6">
-                                <div class="card p-3 text-center">
-                                    <img src="img/usuarios.png" width="70" height="70" alt="Usuários">
+                                <div class="card-gui-p">
+                                    <p>Editar Chamado</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a id="link" href="./autorizacao.php">
+                            <div class="card-gui card-header">
+                                <div class="card-gui-img">
+                                    <img src="./img/autorizacao.png" width="70" height="70">
+                                </div>
+                                <div class="card-gui-p">
+                                    <p>Autorizar</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a id="link" href="./usuarios.php">
+                            <div class="card-gui card-header">
+                                <div class="card-gui-img">
+                                    <img src="./img/usuarios.png" width="70" height="70">
+                                </div>
+                                <div class="card-gui-p">
                                     <p>Usuários</p>
                                 </div>
-                            </a>
-                            <a href="relatorios.php" class="col-6">
-                                <div class="card p-3 text-center">
-                                    <img src="img/relatorio.png" width="70" height="70" alt="Relátorios">
-                                    <p>Relátorios</p>
+                            </div>
+                        </a>
+                        <a id="link" href="./relatorios.php">
+                            <div class="card-gui card-header">
+                                <div class="card-gui-img">
+                                    <img src="./img/relatorio.png" width="70" height="70">
                                 </div>
-                            </a>
-                            <?php } ?>
-                        </div>
-                    </div>
+                                <div class="card-gui-p">
+                                    <p>Relatórios</p>
+                                </div>
+                            </div>
+                        </a>
+                    <?php } ?>
                 </div>
             </div>
         </div>

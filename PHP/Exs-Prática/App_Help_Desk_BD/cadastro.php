@@ -4,21 +4,10 @@
     <meta charset="utf-8" />
     <title>App Help Desk</title>
 
+    <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <style>
-        .card-login {
-            padding: 30px 0 0 0;
-            width: 350px;
-            margin: 0 auto;
-        }
-
-        #select {
-            text-align: center;
-        }
-    </style>
 </head>
-
 <body>
 
     <nav class="navbar navbar-dark bg-dark">
@@ -51,7 +40,7 @@
                             <div class="form-group">
                                 <select name="select" id="select" class="form-control" required>
                                     <option value="" disabled selected>Selecionar Item</option>
-                                    <option value="administrador">Administrador</option>
+                                    <option value="adm">Administrador</option>
                                     <option value="usuario">Usuario</option>
                                 </select>
                             </div>
