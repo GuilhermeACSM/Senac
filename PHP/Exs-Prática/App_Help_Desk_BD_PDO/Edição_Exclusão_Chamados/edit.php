@@ -2,23 +2,73 @@
 require_once "../validador_acesso.php";
 require "../conexao.php";
 
-$query = "SELECT * FROM TB_CHAMADOS where id_chamado = $_GET[id_chamado]";
+try {
+    // Conexão com o banco de dados
+    $dsn = 'mysql:host=localhost;dbname=db_helpdesk';
+    $user = 'root';
+    $pass = '';
+    $link = new PDO($dsn, $user, $pass);
 
-$resultado = mysqli_query($link, $query);
-$chamado = mysqli_fetch_assoc($resultado);
+    // Validação do ID do chamado
+    if (!isset($_GET['id_chamado']) || empty($_GET['id_chamado'])) {
+        die('ID do chamado não fornecido.');
+    }
 
+    $id_chamado = $_GET['id_chamado'];
 
-if($_POST) {
-    $titulo = trim($_POST['titulo']);
-    $categoria = trim($_POST['categoria']);
-    $descricao = trim($_POST['descricao']);
-    $status = trim($_POST['status']);
+    // Obter os dados do chamado
+    $query = "SELECT * FROM TB_CHAMADOS WHERE id_chamado = :id_chamado";
+    $stmt = $link->prepare($query);
+    $stmt->bindParam(':id_chamado', $id_chamado);
+    $stmt->execute();
+    $chamado = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    mysqli_query($link, "UPDATE TB_CHAMADOS SET titulo='$titulo', categoria='$categoria', descricao='$descricao', status='$status' where id_chamado = $_GET[id_chamado]" );
+    if (!$chamado) {
+        die('Chamado não encontrado.');
+    }
 
-    header('location:../editar_arquivo.php?acao=editado');
+    if ($_POST) {
+        // Sanitização e validação dos dados do formulário
+        $titulo = trim($_POST['titulo']);
+        $categoria = trim($_POST['categoria']);
+        $descricao = trim($_POST['descricao']);
+        $status = trim($_POST['status']);
+
+        if (empty($titulo) || empty($categoria) || empty($descricao) || empty($status)) {
+            die('Por favor, preencha todos os campos.');
+        }
+
+        // Atualizar os dados no banco de dados
+        $updateQuery = "UPDATE TB_CHAMADOS 
+                        SET titulo = :titulo, categoria = :categoria, descricao = :descricao, status = :status 
+                        WHERE id_chamado = :id_chamado";
+
+        $updateStmt = $link->prepare($updateQuery);
+        $updateStmt->bindParam(':titulo', $titulo);
+        $updateStmt->bindParam(':categoria', $categoria);
+        $updateStmt->bindParam(':descricao', $descricao);
+        $updateStmt->bindParam(':status', $status);
+        $updateStmt->bindParam(':id_chamado', $id_chamado);
+
+        // Executa a query
+        $resultado = $updateStmt->execute();
+
+        // Verificar se a atualização foi bem-sucedida
+        if ($resultado) {
+            header('location:../editar_arquivo.php?acao=editado');
+            exit();
+        } else {
+            header('location:../editar_arquivo.php?acao=falha');
+            exit();
+        }
+    }
+} catch (PDOException $e) {
+    // Exibe uma mensagem de erro
+    echo 'ERRO ' . $e->getCode() . ' falha na conexão: ' . $e->getMessage();
+    exit();
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">

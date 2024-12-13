@@ -3,9 +3,35 @@ require_once "validador_acesso.php";
 require_once "validador_acessoADM.php";
 require "conexao.php";
 
-$chamados = mysqli_query($link, "SELECT TB_CHAMADOS.*, TB_USUARIOS.nome 
-                                  FROM TB_CHAMADOS 
-                                  INNER JOIN TB_USUARIOS ON TB_CHAMADOS.id_usuario = TB_USUARIOS.id_usuario");
+try {
+    $dsn = 'mysql:host=localhost;dbname=db_helpdesk';
+    $user = 'root';
+    $pass = '';
+
+    $link = new PDO($dsn, $user, $pass);
+
+    // Consulta ao banco de dados
+    $query =  "SELECT TB_CHAMADOS.*, TB_USUARIOS.nome 
+               FROM TB_CHAMADOS 
+               INNER JOIN TB_USUARIOS ON TB_CHAMADOS.id_usuario = TB_USUARIOS.id_usuario";
+
+    $res = $link->prepare($query);
+    $res->execute();
+    $chamados = $res->fetchAll(PDO::FETCH_ASSOC);
+
+} catch (PDOException $e) {
+    echo 'ERRO' . $e->getCode() . ' falha na conexão: ' . $e->getMessage();
+    exit();
+}
+
+// Verificação de sessão
+if (!isset($_SESSION['id_usuario']) || !isset($_SESSION['perfil'])) {
+    header('Location: login.php');
+    exit();
+}
+
+$usuarioId = $_SESSION['id_usuario'];
+$usuarioPerfil = $_SESSION['perfil'];
 
 
 ?>
@@ -72,9 +98,6 @@ $chamados = mysqli_query($link, "SELECT TB_CHAMADOS.*, TB_USUARIOS.nome
                     <div class="card-body" id="card-body-gui">
 
                         <?php
-                        $usuarioId = $_SESSION['id_usuario'];
-                        $usuarioPerfil = $_SESSION['perfil'];
-
                         foreach ($chamados as $chamado) {
                             if ($usuarioPerfil != 'administrador' && $chamado['id_usuario'] != $usuarioId) {
                                 continue;

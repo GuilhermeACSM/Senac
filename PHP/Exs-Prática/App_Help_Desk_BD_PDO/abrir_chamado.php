@@ -1,6 +1,7 @@
 <?php
 require 'conexao.php';
 require_once "validador_acesso.php";
+
 ?>
 
 <html lang="pt-br">
@@ -64,7 +65,8 @@ require_once "validador_acesso.php";
                         <div class="row">
                             <div class="col">
 
-                                <form method="post" action="registra_chamados.php">
+                                <form method="POST" action="registra_chamados.php">
+
                                     <div class="form-group">
                                         <label>Título</label>
                                         <input type="text" class="form-control" placeholder="Título" name="titulo" required>

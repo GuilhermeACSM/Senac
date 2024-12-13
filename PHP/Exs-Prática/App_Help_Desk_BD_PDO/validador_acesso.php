@@ -9,12 +9,12 @@ if(!isset($_SESSION['autenticado']) || ($_SESSION['autenticado']) != 'sim') {
 }
 
 // IF PARA MOSTAR O ID DO USUARIO LOGADO
-
+/*
 if (isset($_SESSION['id_usuario'])) {
     echo "ID do usuário logado: " . $_SESSION['id_usuario'];
 } else {
     echo "Usuário não está autenticado.";
 }
-
+*/
 
 ?>
