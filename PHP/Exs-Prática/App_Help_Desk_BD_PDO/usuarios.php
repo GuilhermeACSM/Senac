@@ -15,7 +15,7 @@ require "conexao.php";
 <?php if (isset($_GET['acao']) && $_GET['acao'] === 'excluir') { ?>
         <div>
             <script>
-                alert('Usuario deletado com sucesso!')
+                alert('Usuário deletado com sucesso!');
                 if (history.replaceState) {
                     const url = window.location.href.split('?')[0];
                     history.replaceState(null, null, url);
@@ -26,7 +26,7 @@ require "conexao.php";
 <?php if (isset($_GET['acao']) && $_GET['acao'] === 'editado') { ?>
         <div>
             <script>
-                alert('Usuario editado com sucesso!')
+                alert('Usuário editado com sucesso!');
                 if (history.replaceState) {
                     const url = window.location.href.split('?')[0];
                     history.replaceState(null, null, url);
@@ -51,8 +51,20 @@ require "conexao.php";
     </nav>
 
     <?php
-    // READ
-    $resultado = mysqli_query($link, 'SELECT * FROM tb_usuarios');
+    $dsn = 'mysql:host=localhost;dbname=db_helpdesk';
+    $user = 'root';
+    $pass = '';
+
+    try {
+        $link = new PDO($dsn, $user, $pass);
+        $link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        // READ
+        $stmt = $link->query('SELECT * FROM tb_usuarios');
+        $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        die("Erro ao conectar com o banco de dados: " . $e->getMessage());
+    }
     ?>
 
     <div class="container">
@@ -65,25 +77,21 @@ require "conexao.php";
                 <th>Editar</th>
             </tr>
             <?php
-            while ($dados = mysqli_fetch_assoc($resultado)) {
+            foreach ($usuarios as $usuario) {
                 echo "<tr>";
-                echo "<td>" . $dados['id_usuario'] . "</td>";
-                echo "<td>" . $dados['nome'] . "</td>";
-                echo "<td>" . $dados['email'] . "</td>";
-                echo "<td>" . $dados['perfil'] . "</td>";
+                echo "<td>" . htmlspecialchars($usuario['id_usuario']) . "</td>";
+                echo "<td>" . htmlspecialchars($usuario['nome']) . "</td>";
+                echo "<td>" . htmlspecialchars($usuario['email']) . "</td>";
+                echo "<td>" . htmlspecialchars($usuario['perfil']) . "</td>";
                 echo "<td>
-                <a href='Edição_Exclusão_Usuarios/edit.php?id_usuario=" . $dados['id_usuario'] . "&acao=editar'><button id='gerenciarBtn'  class='btn btn-success'>Editar</button></a>
-                <a href='Edição_Exclusão_Usuarios/delete.php?id_usuario=" . $dados['id_usuario'] . "&acao=excluir'><button id='gerenciarBtn'  class='btn btn-danger'>Deletar</button></a>
+                <a href='Edição_Exclusão_Usuarios/edit.php?id_usuario=" . $usuario['id_usuario'] . "&acao=editar'><button id='gerenciarBtn' class='btn btn-success'>Editar</button></a>
+                <a href='Edição_Exclusão_Usuarios/delete.php?id_usuario=" . $usuario['id_usuario'] . "&acao=excluir'><button id='gerenciarBtn' class='btn btn-danger'>Deletar</button></a>
             </td>";
                 echo "</tr>";
             }
-
-
-            
-        echo "</table>";
-        ?>
+            ?>
+        </table>
     </div>
-
 
 </body>
 
