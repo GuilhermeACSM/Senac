@@ -35,10 +35,19 @@ require "../conexao.php";
     </nav>
 
     <?php
-    // READ
-    $resultado = mysqli_query($link, "SELECT TB_CHAMADOS.*, TB_USUARIOS.nome 
-                                    FROM TB_CHAMADOS 
-                                    INNER JOIN TB_USUARIOS ON TB_CHAMADOS.id_usuario = TB_USUARIOS.id_usuario where status = 'aberto'");
+    try {
+        // Consulta utilizando PDO
+        $stmt = $link->prepare("
+            SELECT TB_CHAMADOS.*, TB_USUARIOS.nome 
+            FROM TB_CHAMADOS 
+            INNER JOIN TB_USUARIOS ON TB_CHAMADOS.id_usuario = TB_USUARIOS.id_usuario 
+            WHERE status = 'aberto'
+        ");
+        $stmt->execute();
+        $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        die("Erro na consulta ao banco de dados: " . $e->getMessage());
+    }
     ?>
 
     <div class="container">
@@ -51,17 +60,17 @@ require "../conexao.php";
                 <th>Usuário</th>
             </tr>
             <?php
-            while ($dados = mysqli_fetch_assoc($resultado)) {
+            foreach ($resultados as $dados) {
                 echo "<tr>";
-                echo "<td>" . $dados['id_chamado'] . "</td>";
-                echo "<td>" . $dados['titulo'] . "</td>";
-                echo "<td>" . $dados['categoria'] . "</td>";
-                echo "<td>" . $dados['descricao'] . "</td>";
-                echo "<td>" . $dados['nome'] . "</td>";
+                echo "<td>" . ($dados['id_chamado']) . "</td>";
+                echo "<td>" . ($dados['titulo']) . "</td>";
+                echo "<td>" . ($dados['categoria']) . "</td>";
+                echo "<td>" . ($dados['descricao']) . "</td>";
+                echo "<td>" . ($dados['nome']) . "</td>";
                 echo "</tr>";
             }
-        echo "</table>";
-        ?>
+            ?>
+        </table>
     </div>
 </body>
 

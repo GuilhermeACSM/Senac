@@ -79,10 +79,10 @@ require "conexao.php";
             <?php
             foreach ($usuarios as $usuario) {
                 echo "<tr>";
-                echo "<td>" . htmlspecialchars($usuario['id_usuario']) . "</td>";
-                echo "<td>" . htmlspecialchars($usuario['nome']) . "</td>";
-                echo "<td>" . htmlspecialchars($usuario['email']) . "</td>";
-                echo "<td>" . htmlspecialchars($usuario['perfil']) . "</td>";
+                echo "<td>" . ($usuario['id_usuario']) . "</td>";
+                echo "<td>" . ($usuario['nome']) . "</td>";
+                echo "<td>" . ($usuario['email']) . "</td>";
+                echo "<td>" . ($usuario['perfil']) . "</td>";
                 echo "<td>
                 <a href='Edição_Exclusão_Usuarios/edit.php?id_usuario=" . $usuario['id_usuario'] . "&acao=editar'><button id='gerenciarBtn' class='btn btn-success'>Editar</button></a>
                 <a href='Edição_Exclusão_Usuarios/delete.php?id_usuario=" . $usuario['id_usuario'] . "&acao=excluir'><button id='gerenciarBtn' class='btn btn-danger'>Deletar</button></a>

@@ -9,17 +9,15 @@ require "conexao.php";
 
     $link = new PDO($dsn, $user, $pass);
 
-$chamadosAbertos = mysqli_query($link, "SELECT COUNT(*) AS total FROM TB_CHAMADOS WHERE STATUS = 'aberto'");
-$rowAb = mysqli_fetch_assoc($chamadosAbertos);
-$totalAbertos = $rowAb['total'];
-
-$chamadosAndamento = mysqli_query($link, "SELECT COUNT(*) AS total FROM TB_CHAMADOS WHERE STATUS = 'andamento'");
-$rowAn = mysqli_fetch_assoc($chamadosAndamento);
-$totalAndamento = $rowAn['total'];
-
-$chamadosFinalizado = mysqli_query($link, "SELECT COUNT(*) AS total FROM TB_CHAMADOS WHERE STATUS = 'finalizado'");
-$rowFi = mysqli_fetch_assoc($chamadosFinalizado);
-$totalFinalizado = $rowFi['total'];
+    $stmtAbertos = $link->query("SELECT COUNT(*) AS total FROM TB_CHAMADOS WHERE STATUS = 'aberto'");
+    $totalAbertos = $stmtAbertos->fetch(PDO::FETCH_ASSOC)['total'];
+    
+    $stmtAndamento = $link->query("SELECT COUNT(*) AS total FROM TB_CHAMADOS WHERE STATUS = 'andamento'");
+    $totalAndamento = $stmtAndamento->fetch(PDO::FETCH_ASSOC)['total'];
+    
+    $stmtFinalizado = $link->query("SELECT COUNT(*) AS total FROM TB_CHAMADOS WHERE STATUS = 'finalizado'");
+    $totalFinalizado = $stmtFinalizado->fetch(PDO::FETCH_ASSOC)['total'];
+    
 
 ?>
 <!DOCTYPE html>
