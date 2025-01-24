@@ -1,30 +1,30 @@
-# Repositório de Estudos - Senac  
+# Study Repository - Senac  
 
-Bem-vindo ao meu repositório! Aqui estão organizados todos os conteúdos, exercícios e projetos desenvolvidos durante as aulas no Senac.  
+Welcome to my repository! Here, I organize all the content, exercises, and projects developed during my classes at Senac.  
 
-## Estrutura do Repositório  
+## Repository Structure  
 
-- **Banco de Dados**:  
-  Exercícios e práticas relacionados à modelagem, consultas SQL, e outros conceitos de banco de dados.  
+- **Database**:  
+  Exercises and practices related to database modeling, SQL queries, and other database concepts.  
 
 - **Html & Css**:  
-  Conteúdo focado em construção de interfaces web e estilização de páginas.  
+  Content focused on building web interfaces and styling pages.  
 
 - **Jscript**:  
-  Práticas e exercícios envolvendo JavaScript, incluindo conceitos básicos e funcionalidades interativas.  
+  Practices and exercises involving JavaScript, including basic concepts and interactive functionalities.  
 
-- **PHP/Exs-Prática**:  
-  Exercícios práticos desenvolvidos em PHP, aplicando conceitos de backend e lógica de programação.  
+- **PHP/Practical Exercises**:  
+  Practical exercises developed in PHP, applying backend concepts and programming logic.  
 
 - **Portugol**:  
-  Introdução à lógica de programação com Portugol, incluindo algoritmos básicos.  
+  Introduction to programming logic using Portugol, including basic algorithms.  
 
-## Tecnologias e Ferramentas  
-Trabalho com as seguintes tecnologias neste repositório:  
+## Technologies and Tools  
+This repository includes work with the following technologies:  
 - **Frontend**: HTML, CSS, JavaScript  
 - **Backend**: PHP  
-- **Lógica de Programação**: Portugol  
-- **Banco de Dados**: SQL  
+- **Programming Logic**: Portugol  
+- **Database**: SQL  
 
-## Sobre o Repositório  
-Os arquivos estão organizados por temas e separados por tópicos estudados em cada aula. O objetivo é documentar meu progresso e facilitar futuras revisões.  
+## About the Repository  
+Files are organized by topic and separated by subjects covered in each class. The goal is to document my progress and make future reviews easier.  
