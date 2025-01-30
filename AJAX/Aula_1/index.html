@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Requisições</title>
+</head>
+<body>
+    <nav class="menu">
+        <h3>Requisições sincronas e assincronas</h3>
+    </nav>
+
+    <div class="botoes">
+        <a href="#" onclick="requisicao('pagina_conteudo_1.php')">Página 1</a>
+        <a href="#" onclick="requisicao('pagina_conteudo_2.html')">Página 2</a>
+        <a href="#" onclick="requisicao('pagina_conteudo_4.html')">Página 3</a>
+    </div>
+
+    <div class="conteudo" id="conteudo"></div>    
+    
+    <script>
+        function requisicao(url) {
+            document.getElementById('conteudo').innerHTML = ''
+            let imgloading = document.createElement('img');
+            imgloading.src = 'loading1.gif';
+            imgloading.id = 'loading';
+                                    //conteudo
+            document.getElementById('conteudo').appendChild(imgloading);
+
+
+            let ajax = new XMLHttpRequest();
+
+            // console.log(ajax.readyState);
+
+            ajax.open('GET', url);
+
+            ajax.onreadystatechange = () =>{
+                if(ajax.readyState == 4) {
+                    if(ajax.status == 200) {
+                        document.getElementById('conteudo').innerHTML = ajax.responseText
+                    }
+                    if(ajax.status == 404) {
+                        document.getElementById('conteudo').innerHTML = '<h1>Recurso não encontrado. Código de erro 404</h1>'
+                    }
+                    
+                    // document.getElementById('loading').remove()
+                }
+            }
+
+            ajax.send();
+
+            // console.log(ajax.readyState);
+            // console.log(ajax.readyState);
+        }
+    </script>
+</body>
+</html>
