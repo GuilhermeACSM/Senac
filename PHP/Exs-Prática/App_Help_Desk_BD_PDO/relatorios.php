@@ -3,17 +3,22 @@ require_once "validador_acesso.php";
 require_once "validador_acessoADM.php";
 require "conexao.php";
 
-$chamadosAbertos = mysqli_query($link, "SELECT COUNT(*) AS total FROM TB_CHAMADOS WHERE STATUS = 'aberto'");
-$rowAb = mysqli_fetch_assoc($chamadosAbertos);
-$totalAbertos = $rowAb['total'];
+    $dsn = 'mysql:host=localhost;dbname=db_helpdesk';
+    $user = 'root';
+    $pass = '';
 
-$chamadosAndamento = mysqli_query($link, "SELECT COUNT(*) AS total FROM TB_CHAMADOS WHERE STATUS = 'andamento'");
-$rowAn = mysqli_fetch_assoc($chamadosAndamento);
-$totalAndamento = $rowAn['total'];
+    $link = new PDO($dsn, $user, $pass);
 
-$chamadosFinalizado = mysqli_query($link, "SELECT COUNT(*) AS total FROM TB_CHAMADOS WHERE STATUS = 'finalizado'");
-$rowFi = mysqli_fetch_assoc($chamadosFinalizado);
-$totalFinalizado = $rowFi['total'];
+    $stmtAbertos = $link->query("SELECT COUNT(*) AS total FROM TB_CHAMADOS WHERE STATUS = 'aberto'");
+    $totalAbertos = $stmtAbertos->fetch(PDO::FETCH_ASSOC)['total'];
+    
+    $stmtAndamento = $link->query("SELECT COUNT(*) AS total FROM TB_CHAMADOS WHERE STATUS = 'andamento'");
+    $totalAndamento = $stmtAndamento->fetch(PDO::FETCH_ASSOC)['total'];
+    
+    $stmtFinalizado = $link->query("SELECT COUNT(*) AS total FROM TB_CHAMADOS WHERE STATUS = 'finalizado'");
+    $totalFinalizado = $stmtFinalizado->fetch(PDO::FETCH_ASSOC)['total'];
+    
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

@@ -9,56 +9,54 @@ try {
     $pass = '';
     $link = new PDO($dsn, $user, $pass);
 
-    // Validação do ID do chamado
+    // Validação do ID do usuário
     if (!isset($_GET['id_usuario']) || empty($_GET['id_usuario'])) {
-        die('ID do chamado não fornecido.');
+        die('ID do usuário não fornecido.');
     }
 
-    $id_usuario = $_GET['id_usuario'];
+    $id_usuario = (int)$_GET['id_usuario'];
 
-    // Obter os dados do chamado
-    $query = "SELECT * FROM TB_CHAMADOS WHERE id_usuario = :id_usuario";
+    // Obter os dados do usuário
+    $query = "SELECT * FROM tb_usuarios WHERE id_usuario = :id_usuario";
     $stmt = $link->prepare($query);
-    $stmt->bindParam(':id_usuario', $id_usuario);
+    $stmt->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
     $stmt->execute();
-    $chamado = $stmt->fetch(PDO::FETCH_ASSOC);
+    $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if (!$chamado) {
-        die('Chamado não encontrado.');
+    if (!$usuario) {
+        die('Usuário não encontrado.');
     }
 
-    if ($_POST) {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Sanitização e validação dos dados do formulário
-        $titulo = trim($_POST['titulo']);
-        $categoria = trim($_POST['categoria']);
-        $descricao = trim($_POST['descricao']);
-        $status = trim($_POST['status']);
+        $nome = trim($_POST['nome']);
+        $email = trim($_POST['email']);
+        $perfil = trim($_POST['perfil']);
 
-        if (empty($titulo) || empty($categoria) || empty($descricao) || empty($status)) {
+        if (empty($nome) || empty($email) || empty($perfil)) {
             die('Por favor, preencha todos os campos.');
         }
 
         // Atualizar os dados no banco de dados
-        $updateQuery = "UPDATE TB_CHAMADOS 
-                        SET titulo = :titulo, categoria = :categoria, descricao = :descricao, status = :status 
+        $updateQuery = "UPDATE tb_usuarios 
+                        SET nome = :nome, email = :email, perfil = :perfil 
                         WHERE id_usuario = :id_usuario";
 
         $updateStmt = $link->prepare($updateQuery);
-        $updateStmt->bindParam(':titulo', $titulo);
-        $updateStmt->bindParam(':categoria', $categoria);
-        $updateStmt->bindParam(':descricao', $descricao);
-        $updateStmt->bindParam(':status', $status);
-        $updateStmt->bindParam(':id_usuario', $id_usuario);
+        $updateStmt->bindParam(':nome', $nome);
+        $updateStmt->bindParam(':email', $email);
+        $updateStmt->bindParam(':perfil', $perfil);
+        $updateStmt->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
 
         // Executa a query
         $resultado = $updateStmt->execute();
 
-        // Verificar se a atualização foi bem-sucedida
+        // Redireciona com base no resultado
         if ($resultado) {
-            header('location:../editar_arquivo.php?acao=editado');
+            header('location:../usuarios.php?acao=editado');
             exit();
         } else {
-            header('location:../editar_arquivo.php?acao=falha');
+            header('location:../usuarios.php?acao=falha');
             exit();
         }
     }
@@ -78,12 +76,9 @@ try {
     <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>App Help Desk</title>
-
-   
 </head>
 
 <body>
-
     <nav class="navbar navbar-dark bg-dark">
         <a class="navbar-brand" href="../home.php">
             <img src="../img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="Logo App Help Desk">
@@ -102,66 +97,54 @@ try {
 
     <div class="container">
         <div class="row">
-
             <div class="card-abrir-chamado">
                 <div class="card">
                     <div class="card-header">
-                        Editando usario
+                        Editando usuário
                     </div>
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col">
+                        <form method="POST" action="">
+                            <input name="id_usuario" type="hidden" value="<?php echo $usuario['id_usuario']; ?>">
 
-                                <form method="POST" action="">
-                                        <input name="id_usuario" type="hidden" class="form-control"
-                                            value="<?php print $row->id_usuario; ?>" required>
-
-                                        <div class="form-group">
-                                            <label>ID: </label>
-                                            <input name="id" type="text" class="form-control"
-                                                value="<?php print $row->id_usuario; ?>" required disabled>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Nome: </label>
-                                            <input name="nome" type="text" class="form-control"
-                                                value="<?php print $row->nome; ?>" required autofocus>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>E-mail:</label>
-                                            <input name="email" type="text" class="form-control"
-                                                value="<?php print $row->email; ?>" required>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label>Perfil</label>
-                                            <select name="perfil" class="form-control" required>
-                                                <option value="" disabled selected><?php  print $row->perfil; ?></option>
-                                                <option value="usuario">Usuario</option>
-                                                <option value="administrador">Administrador</option>
-                                            </select>
-                                        </div>
-
-
-                                        <div class="row mt-5">
-                                            <div class="col-6">
-                                                <a class="btn btn-lg btn-warning btn-block" href="../usuarios.php">Cancelar</a>
-                                            </div>
-
-                                            <div class="col-6">
-                                                <button class="btn btn-lg btn-info btn-block" type="submit">Salvar</button>
-                                            </div>
-                                        </div>
-                                </form>
+                            <div class="form-group">
+                                <label>ID: </label>
+                                <input type="text" class="form-control" value="<?php echo $usuario['id_usuario']; ?>" disabled>
                             </div>
-                        </div>
+
+                            <div class="form-group">
+                                <label>Nome: </label>
+                                <input name="nome" type="text" class="form-control" value="<?php echo $usuario['nome']; ?>" required autofocus>
+                            </div>
+
+                            <div class="form-group">
+                                <label>E-mail:</label>
+                                <input name="email" type="email" class="form-control" value="<?php echo $usuario['email']; ?>" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Perfil</label>
+                                <select name="perfil" class="form-control" required>
+                                    <option value="" disabled>Selecione</option>
+                                    <option value="usuario" <?php echo $usuario['perfil'] === 'usuario' ? 'selected' : ''; ?>>Usuário</option>
+                                    <option value="administrador" <?php echo $usuario['perfil'] === 'administrador' ? 'selected' : ''; ?>>Administrador</option>
+                                </select>
+                            </div>
+
+                            <div class="row mt-5">
+                                <div class="col-6">
+                                    <a class="btn btn-lg btn-warning btn-block" href="../usuarios.php">Cancelar</a>
+                                </div>
+
+                                <div class="col-6">
+                                    <button class="btn btn-lg btn-info btn-block" type="submit">Salvar</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 </body>
 
 </html>
