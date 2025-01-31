@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url(../img/background.jpg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.carrossel-card {
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.644);
+    color: white;
+    backdrop-filter: 10px;
+    border-radius: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.644);
+}
+
+.carrossel {
+    width: 300px;
+    text-align: center;
+}
+.personagem {
+    font-size: 24px;
+    margin: 20px;
+}
+.botao {
+    background-color: #B22222;
+    color: white;
+    border: none;
+    margin-top: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+.botao:hover {
+    background-color: #b83535;
+}
+
+.card {
+    color: white;
+    width: 250px;
+    height: 400px;
+    background-color: rgba(0, 0, 0, 0.644);
+    border-radius: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.644);
+    padding: 20px;
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+}
+
+.card img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+.card h2 {
+    margin: 10px 0;
+    color: white;
+}
+
+.card .attribute {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.card .attribute strong {
+    color: white;
+}
+
+select, input[type="submit"] {
+    padding: 10px;
+    margin-top: 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
