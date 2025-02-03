@@ -1,5 +1,4 @@
 <?php
-
 $personagemEscolhido = "Guerreiro";  // Valor padrão
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $personagemEscolhido = $_POST['personagem'];
