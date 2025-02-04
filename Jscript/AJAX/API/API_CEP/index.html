@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Busca de CEP</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="text-center mb-4">Buscar CEP</h2>
+      <form>
+        <div class="mb-3">
+          <label for="cep" class="form-label">Informe o CEP</label>
+          <input
+            type="text"
+            class="form-control"
+            id="cep"
+            maxlength="9"
+            placeholder="Ex: 12345-678"
+            onblur="getEndereco(this.value)"
+          />
+        </div>
+      </form>
+
+      <div class="result mt-4">
+        <h5>Resultado da Busca:</h5>
+        <div class="address-info">
+          <div class="mb-3">
+            <label for="endereco" class="form-label">Endereço</label>
+            <input
+              type="text"
+              class="form-control"
+              id="endereco"
+              value="Rua Exemplo, 123"
+              readonly
+            />
+          </div>
+          <div class="mb-3">
+            <label for="bairro" class="form-label">Bairro</label>
+            <input
+              type="text"
+              class="form-control"
+              id="bairro"
+              value="Bairro Exemplo"
+              readonly
+            />
+          </div>
+          <div class="mb-3">
+            <label for="cidade" class="form-label">Cidade</label>
+            <input
+              type="text"
+              class="form-control"
+              id="cidade"
+              value="Cidade Exemplo"
+              readonly
+            />
+          </div>
+          <div class="mb-3">
+            <label for="estado" class="form-label">Estado</label>
+            <input
+              type="text"
+              class="form-control"
+              id="estado"
+              value="EX"
+              readonly
+            />
+          </div>
+
+          <div id="erro"></div>
+
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function getEndereco(cep) {
+        let url = "https://viacep.com.br/ws/" + cep + "/json/";
+        // console.log(url)
+  
+        let xmlHttp = new XMLHttpRequest();
+  
+        xmlHttp.open("GET", url);
+        xmlHttp.onreadystatechange = () => {
+          if (xmlHttp.readyState == 4) {
+            //console.log(xmlHttp)
+
+            if (xmlHttp.status == 200) {
+              let dadosJSONText = xmlHttp.responseText
+              //console.log(dadosJSONText)
+
+              let dadosJSONobj = JSON.parse(dadosJSONText)
+              //console.log(dadosJSONobj)
+
+              document.getElementById('endereco').value = dadosJSONobj.logradouro
+              document.getElementById('bairro').value = dadosJSONobj.bairro
+              document.getElementById('cidade').value = dadosJSONobj.localidade
+              document.getElementById('estado').value = dadosJSONobj.estado
+              document.getElementById('erro').innerHTML = ""
+            }
+            if (xmlHttp.status == 0) {
+              document.getElementById("erro").innerHTML = '<h3>CEP inválido!</h3>'
+            }
+
+          }
+  
+        };
+        xmlHttp.send();
+      }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
