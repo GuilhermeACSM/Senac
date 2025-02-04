@@ -92,10 +92,10 @@ class Sacerdote extends Personagem {
 
 class Anao extends Personagem {
     public function __construct() {
-        parent::__construct("Anão", "img/armamento.png", 90, 50, 60, "Mestre de Armas");
+        parent::__construct("Anão", "img/anao.png", 90, 50, 60, "Treinamento em Armas");
     }
     public function golpePoderoso() {
-        return "{$this->nome} libera uma Torreta Avançada!";
+        return "{$this->nome} golpeia o solo com seu machado, criando uma pequena onda de choque!";
     }
 }
 

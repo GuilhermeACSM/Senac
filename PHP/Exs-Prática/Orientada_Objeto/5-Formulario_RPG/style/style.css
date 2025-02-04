@@ -24,38 +24,59 @@ body {
     width: 300px;
     text-align: center;
 }
+
 .personagem {
     font-size: 24px;
     margin: 20px;
 }
+
 .botao {
-    background-color: #B22222;
+    background-color: #000911;
     color: white;
     border: none;
     margin-top: 5px;
     padding: 10px;
     cursor: pointer;
 }
+
 .botao:hover {
-    background-color: #b83535;
+    background-color: #00091193;
 }
 
 .card {
     color: white;
-    width: 250px;
+    width: 45%;
     background-color: rgba(0, 0, 0, 0.644);
     border-radius: 10px;
     border: 2px solid rgba(0, 0, 0, 0.644);
     padding: 20px;
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 10px;
     text-align: center;
+    justify-content: center;
 }
 
 .card img {
     width: 100px;
     height: 100px;
     margin-bottom: 20px;
+}
+
+.card ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card li {
+    text-align: center;
+    width: 100%;
 }
 
 .card h2 {
@@ -78,3 +99,15 @@ select, input[type="submit"] {
     font-size: 16px;
     cursor: pointer;
 }
+
+#personagem-container {
+    text-align: center;
+}
+
+#personagem-imagem {
+    width: 150px; /* Ajuste conforme necessário */
+    height: auto;
+    display: block;
+    margin: 0 auto 10px;
+}
+
