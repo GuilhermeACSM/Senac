@@ -14,6 +14,7 @@ require('Menager_Class/class.php');
         <div>
             <img src="<?= $carta->getImagem() ?>" alt="<?= $carta->getNome() ?>">
             <h2><?= $carta->getNome() ?></h2>
+            <div class="attribute"><strong>Hp:</strong> <?= $carta->getHp() ?></div>
             <div class="attribute"><strong>Força:</strong> <?= $carta->getForca() ?></div>
             <div class="attribute"><strong>Destreza:</strong> <?= $carta->getDestreza() ?></div>
             <div class="attribute"><strong>Inteligência:</strong> <?= $carta->getInteligencia() ?></div>

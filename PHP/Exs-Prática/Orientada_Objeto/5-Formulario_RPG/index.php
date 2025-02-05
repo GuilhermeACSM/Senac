@@ -1,6 +1,6 @@
 <?php
 $personagemEscolhido = "Guerreiro";  // Valor padrão
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_POST) {
     $personagemEscolhido = $_POST['personagem'];
     header("Location: atributos.php?personagem=" . ($personagemEscolhido));
     exit;
@@ -30,8 +30,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <button type="submit" class="botao">Confirmar Seleção</button>
             </form>
             <div>
-                <button class="botao" onclick="moverCarrossel('esquerda')">←</button>
-                <button class="botao" onclick="moverCarrossel('direita')">→</button>
+                <!-- ← / → -->
+                <button class="botao" onclick="moverCarrossel('esquerda')"> ← </button>
+                <button class="botao" onclick="moverCarrossel('direita')"> → </button>
             </div>
         </div>
     </div>
