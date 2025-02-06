@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Busca de Rick and Morty</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center mb-4">Buscar Personagem - Rick and Morty</h2>
+        <form>
+            <div class="mb-3">
+                <label for="nome" class="form-label">Nome do Personagem</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="nome"
+                    placeholder="Digite o nome de um personagem"
+                    onblur="getPersonagem(this.value)"
+                />
+            </div>
+        </form>
+
+        <div class="result mt-4">
+            <h5>Resultado da Busca:</h5>
+            <div class="address-info">
+                <!-- Exibindo imagem do personagem -->
+                <div class="mb-3">
+                    <label class="form-label">Imagem do Personagem</label>
+                    <br />
+                    <img id="personagem-img" src="" alt="Imagem do personagem" class="img-fluid" style="max-width: 200px;" />
+                </div>
+                
+                <div class="mb-3">
+                    <label for="status" class="form-label">Status</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="status"
+                        value="Status do personagem"
+                        readonly
+                    />
+                </div>
+                <div class="mb-3">
+                    <label for="origem" class="form-label">Origem</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="origem"
+                        value="Origem do personagem"
+                        readonly
+                    />
+                </div>
+                <div class="mb-3">
+                    <label for="localizacao" class="form-label">Localização</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="localizacao"
+                        value="Localização do personagem"
+                        readonly
+                    />
+                </div>
+                <div class="mb-3">
+                    <label for="episodio" class="form-label">Episódio</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="episodio"
+                        value="Episódio do personagem"
+                        readonly
+                    />
+                </div>
+            </div>
+            <div id="erro"></div>
+        </div>
+    </div>
+
+    <script>
+        function getPersonagem(nome) {
+            if (!nome) {
+                document.getElementById("erro").innerHTML = "<h3>Por favor, insira o nome de um personagem!</h3>";
+                return;
+            }
+
+            let url = `https://rickandmortyapi.com/api/character/?name=${nome}`;
+
+            let xmlHttp = new XMLHttpRequest();
+
+            xmlHttp.open("GET", url);
+            xmlHttp.onreadystatechange = () => {
+                if (xmlHttp.readyState == 4) {
+                    // console.log(xmlHttp)
+                    if (xmlHttp.status == 200) {
+                        let dadosJSON = JSON.parse(xmlHttp.responseText);
+                        // console.log(dadosJSON)
+                        if (dadosJSON.results && dadosJSON.results.length > 0) {
+                            let personagem = dadosJSON.results[0];
+                            console.log(personagem)
+
+                            // Atualizando os campos com as informações do personagem
+                            document.getElementById('status').value = personagem.status;
+                            document.getElementById('origem').value = personagem.origin.name;
+                            document.getElementById('localizacao').value = personagem.location.name;
+                            document.getElementById('personagem-img').src = personagem.image;
+                            
+
+                             // Obter os nomes dos episódios usando forEach
+                    let episodios = [];
+                    personagem.episode.forEach((epUrl) => {
+                        let epRequest = new XMLHttpRequest();
+                        epRequest.open("GET", epUrl, false); // Requisição síncrona
+                        epRequest.onreadystatechange = () => {
+                            if (epRequest.readyState == 4 && epRequest.status == 200) {
+                                let epData = JSON.parse(epRequest.responseText);
+                                episodios.push(epData.name);
+                            }
+                        };
+                        epRequest.send();
+                    });
+
+                    // Exibir os nomes dos episódios
+                    document.getElementById('episodio').value = episodios.join(", ");
+
+
+
+
+                            document.getElementById('erro').innerHTML = "";
+                        } else {
+                            document.getElementById('erro').innerHTML = "<h3>Personagem não encontrado!</h3>";
+                            document.getElementById('status').value = "Status não disponível";
+                            document.getElementById('origem').value = "Origem não disponível";
+                            document.getElementById('localizacao').value = "Localização não disponível";
+                        }
+                    } else {
+                        document.getElementById("erro").innerHTML = "<h3>Erro ao buscar personagem.</h3>";
+                    }
+                }
+            };
+            xmlHttp.send();
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
