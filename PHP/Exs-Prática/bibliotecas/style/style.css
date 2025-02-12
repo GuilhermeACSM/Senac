@@ -1,0 +1,112 @@
+/* form */
+.forms-container {
+    display: block;
+    grid-template-rows: 3fr 1fr 6fr;
+    width: 100%;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    height: auto;
+  }
+  
+  .assinatura {
+    margin: 0 10px;
+  }
+  
+  .assinatura h1 {
+    font-family: var(--font-smooch);
+    font-size: 52px;
+    font-weight: normal;
+    text-align: center;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  
+  .assinatura p {
+    font-weight: lighter;
+    font-size: 18px;
+  }
+  
+  .assinatura p:last-child {
+    font-weight: 500;
+  }
+  
+  .contato {
+    align-self: center;
+    justify-self: center;
+    margin-top: 50px;
+  }
+  
+  .contato h1 {
+    font-family: var(--font-smooch);
+    font-size: 40px;
+    font-weight: normal;
+    text-align: center;
+    font-weight: 600;
+  
+  }
+  
+  .div-form {
+    background-color: #D9D9D9;
+    padding: 20px;
+    margin: 0 auto;
+    border-radius: 10px;
+  }
+  
+  form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    height: 100%;
+  }
+  
+  .nome {
+    grid-column: 1 / 2;
+  }
+  
+  .sobrenome {
+    grid-column: 2 / 3;
+  }
+  
+  .email, .assunto {
+    grid-column: 1 / -1;
+  }
+  
+  input {
+    border-radius: 10px;
+    height: 40px;
+    border: solid 2px grey;
+    padding: 10px;
+    color: grey;
+    width: 98%;
+  }
+  
+  textarea {
+    grid-column: 1 / -1;
+    border-radius: 10px;
+    border: solid 2px grey;
+    padding: 10px;
+    color: grey;
+  }
+  
+  .enviar, .reset {
+    background-color: grey;
+    color: var(--branco);
+  }
+  
+  .enviar:hover, .reset:hover {
+    opacity: 80%;
+    cursor: pointer;
+  }
+  
+  /* estilo da borda quando selecionada */
+    input[type=text], input[type=email], textarea {
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+  }
+  
+    input[type=text]:focus, input[type=email]:focus, textarea:focus {
+    border: 3px solid #555;
+  }
