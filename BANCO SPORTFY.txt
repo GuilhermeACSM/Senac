@@ -1,0 +1,64 @@
+-- Criar o banco de dados 'sportfy'
+CREATE DATABASE IF NOT EXISTS sportfy;
+USE sportfy;
+
+-- Tabela de usuários
+CREATE TABLE IF NOT EXISTS usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    sexo ENUM('Masculino', 'Feminino') NOT NULL,
+    data_nascimento DATE NOT NULL,
+    cidade VARCHAR(100) NOT NULL, -- Colocar Estado também. Ex: Praia Grande tem em SP e em SC.
+    telefone VARCHAR(15),
+    email VARCHAR(100) UNIQUE NOT NULL,
+    senha VARCHAR(255) NOT NULL, -- Colocar campo a mais ATIVADO (se o cara ativou a conta ou não, por meio do email que ele recebeu)
+    data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Tabela de esportes
+CREATE TABLE IF NOT EXISTS esportes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(50) UNIQUE NOT NULL,
+    descricao TEXT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Tabela de locais
+CREATE TABLE IF NOT EXISTS locais (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) UNIQUE NOT NULL,
+    endereco TEXT NOT NULL,
+    cidade VARCHAR(100) NOT NULL -- Colocar Estado, e colocar campo para coordenadas geográficas (POINT)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Tabela de partidas (eventos esportivos)
+CREATE TABLE IF NOT EXISTS partidas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    esporte_id INT NOT NULL,
+    local_id INT NOT NULL,
+    dataDia DATE NOT NULL,
+    horario TIME NOT NULL,
+    descricao TEXT, -- Colocar um campo de qtd máxima de participantes
+    data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (esporte_id) REFERENCES esportes(id) ON DELETE CASCADE,
+    FOREIGN KEY (local_id) REFERENCES locais(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Tabela de participações (usuários participando de eventos)
+CREATE TABLE IF NOT EXISTS participacoes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario_id INT NOT NULL,
+    partida_id INT NOT NULL,
+    data_inscricao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE,
+    FOREIGN KEY (partida_id) REFERENCES partidas(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Tabela de buscas (registrando pesquisa por nome, esporte e local)
+CREATE TABLE IF NOT EXISTS buscas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario_id INT NULL, -- Permite buscas anônimas
+    termo_busca VARCHAR(255) NOT NULL,
+    tipo_busca ENUM('usuario', 'esporte', 'local') NOT NULL,
+    data_busca TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
