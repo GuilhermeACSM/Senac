@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { View, Text, Image, Button, StyleSheet, ScrollView, FlatList, TextInput, Switch } from "react-native";
+import { View, Text, Image, Button, StyleSheet, ScrollView, FlatList, TextInput, Switch, TouchableOpacity } from "react-native";
 import { Picker } from '@react-native-picker/picker';
 import  Slider  from '@react-native-community/slider';
 
@@ -10,7 +10,7 @@ class App extends Component {
       nome: '',
       idade: '',
       sexo: 'masculino',
-      limite: 5000, 
+      limite: 2100, 
       estudante: false,
     };
   }
@@ -87,6 +87,10 @@ class App extends Component {
           </View>
         </View>
   
+        <TouchableOpacity style={style.botao} onPress={this.abrirConta}>
+          <Text style={style.botaoText}>Abrir Conta</Text>
+        </TouchableOpacity>
+
         <Button title="Abrir Conta" onPress={this.abrirConta} />
       </View>
     );
@@ -120,7 +124,7 @@ const style = StyleSheet.create({
   input: {
     height: 40,
     borderColor: '#000',
-    backgroundColor: '#cccc',
+    backgroundColor: '#d3d3d0',
     borderWidth: 1,
     marginBottom: 20,
     paddingLeft: 10,
@@ -152,6 +156,19 @@ const style = StyleSheet.create({
   textSwitch: {
     fontSize: 18,
     marginRight: 10,
+  },
+  botao: {
+    backgroundColor: '#007bff', 
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 8,
+    alignItems: 'center',
+    marginBottom:15,
+  },
+  botaoText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
 
