@@ -1,1 +1,0 @@
-npx create-expo-app@latest primeiroapp -t blank

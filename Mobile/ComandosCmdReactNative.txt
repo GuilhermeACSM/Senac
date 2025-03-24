@@ -1,0 +1,31 @@
+CRIAÇÃO DE PASTAS PELO CMD: 
+- npx create-expo-app@latest NomeDaPasta -t blank;
+
+
+INICIAR O APP NO ANDROID STUDIO:
+- Entrar na pasta que deseja iniciar usando 'cd NomeDaPasta';
+- Ao entrar na pasta colocar o comando 'npm run android' para iniciar no Android Studio;
+
+
+COMANDO DOWNLOAD DO PICKER:
+- npm install @react-native-picker/picker --save;
+- Para puxar o Picker no código é necessário fazer o import; 
+- import { Picker } from '@react-native-picker/picker';
+
+
+COMANDO DOWNLOAD DO SLIDER:
+- npm install @react-native-community/slider --save;
+- Para puxar o Slider no código é necessário fazer o import; 
+- import  Slider  from '@react-native-community/slider';
+
+
+COMANDO DOWNLOAD DO ASYNC STORAGE:
+- npm install @react-native-async-storage/async-storage --save;
+- Para puxar o AsyncStorage no código é necessário fazer o import;
+- import AsyncStorage from '@react-native-async-storage/async-storage';
+
+COMANDO DOWNLOAD DO AXIOS:
+- npx expo install axios;
+- npm install --save axios;
+- Para puxar o axios no código é necessário fazer o import;
+- import axios from 'axios';
