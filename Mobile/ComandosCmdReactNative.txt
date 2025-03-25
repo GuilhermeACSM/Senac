@@ -24,6 +24,7 @@ COMANDO DOWNLOAD DO ASYNC STORAGE:
 - Para puxar o AsyncStorage no código é necessário fazer o import;
 - import AsyncStorage from '@react-native-async-storage/async-storage';
 
+
 COMANDO DOWNLOAD DO AXIOS:
 - npx expo install axios;
 - npm install --save axios;

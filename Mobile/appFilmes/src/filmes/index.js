@@ -1,24 +1,50 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, FlatList, Image } from "react-native";
-//import api from './src/services/api.js';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, FlatList, Image, TouchableOpacity, Modal } from "react-native";
 
-const Filmes = ({filmes}) => {
+import Exibir from '../detalhes';
+
+const Filmes = ({ filmes }) => {
+  const [modalVisible, setModalVisible] = useState(false);
+  const [selectedFilme, setSelectedFilme] = useState(null);
+
+  const OpenModal = (filme) => {
+    setSelectedFilme(filme);
+    setModalVisible(true);
+  };
+
+  const CloseModal = () => {
+    setModalVisible(false);
+    setSelectedFilme(null);
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Lista de Filmes</Text>
-      <FlatList data={filmes} keyExtractor={(item) => String(item.id)} 
-      renderItem={({ item }) => (
+      <FlatList
+        showsVerticalScrollIndicator={false}
+        data={filmes}
+        keyExtractor={(item) => String(item.id)}
+        renderItem={({ item }) => (
           <View style={styles.filmeContainer}>
             <Image source={{ uri: item.foto }} style={styles.filmeImagem} />
             <Text style={styles.filmeTitulo}>{item.nome}</Text>
-            <Text style={styles.filmeSinopse}>{item.sinopse}</Text>
+            <TouchableOpacity style={styles.filmeBotao} onPress={() => OpenModal(item)}>
+              <Text style={styles.filmeBotaoTexto}>Ver mais</Text>
+            </TouchableOpacity>
           </View>
         )}
       />
+
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+      >
+        <Exibir filme={selectedFilme} onClose={CloseModal} />
+      </Modal>
     </View>
   );
 };
-
 
 const styles = StyleSheet.create({
   container: {
@@ -37,7 +63,7 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: '#fff',
     borderRadius: 8,
-    elevation: 3,
+    elevation: 5,
     alignItems: 'center',
   },
   filmeImagem: {
@@ -51,11 +77,15 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
   },
-  filmeSinopse: {
-    fontSize: 14,
-    textAlign: 'center',
-    color: '#555',
+  filmeBotao: {
+    backgroundColor: 'black',
+    padding: 10,
+    borderRadius: 5,
     marginTop: 5,
+  },
+  filmeBotaoTexto: {
+    color: 'white',
+    textAlign: 'center',
   },
 });
 

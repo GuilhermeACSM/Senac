@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, FlatList, Image } from "react-native";
+import { View, Text, StyleSheet, FlatList, Image, ActivityIndicator } from "react-native";
 
 import api from './src/services/api.js';
 import Filmes from './src/filmes/index.js';
 
 const App = () => {
+
   const [filmes, setFilmes] = useState([]);
+  const [loading, setLoading] = useState([true]);
 
   useEffect(() => {
     async function loadFilmes() {
       try {
         const resposta = await api.get('r-api/?api=filmes');
         setFilmes(resposta.data);
+        setLoading(false)
       } catch (error) {
         console.error("Erro ao buscar filmes:", error);
       }
@@ -19,25 +22,28 @@ const App = () => {
     loadFilmes();
   }, []);
 
+  if(loading) {
+    return(
+      <View style={styles.container}>
+        <ActivityIndicator size={50} color="#121212"></ActivityIndicator>
+      </View>
+    );
+  } else {
+    return (
+      <Filmes filmes = {filmes}/>
+    );
+  }
 
-  return (
-    <Filmes filmes = {filmes}/>
-  );
+  
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
-    backgroundColor: '#f5f5f5',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f4f4f4',
   },
-  title: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    marginBottom: 10,
-    textAlign: 'center',
-  },
-
 });
 
 export default App;
