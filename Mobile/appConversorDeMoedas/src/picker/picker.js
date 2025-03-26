@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, ActivityIndicator } from "react-native";
+import {  StyleSheet, } from "react-native";
 import { Picker } from '@react-native-picker/picker';
 
-
-export default function PickerItem({moedas}) {
+export default function PickerItem({ moedas, moedaSelecionada, quandoMudar}) {
 
     let moedasItem = moedas.map((item, index) => {
         return(
@@ -12,7 +10,7 @@ export default function PickerItem({moedas}) {
     })
 
     return (
-        <Picker style={styles.picker}>
+        <Picker style={styles.picker} selectedValue={moedaSelecionada} onValueChange={(valor) => quandoMudar(valor)}>
             {moedasItem}
         </Picker>
     );

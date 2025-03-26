@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, ActivityIndicator } from "react-native";
-import { Picker } from '@react-native-picker/picker';
 
 import PickerItem from '../picker/picker.js';
 
-export default function Conversor() {
+export default function Conversor({ moedas, moedaSelecionada, setMoedaSelecionada }) {
 
     return (
         <View style={styles.container}>
@@ -14,9 +12,9 @@ export default function Conversor() {
             <View style={styles.conversorContainer}>
                 <Text style={styles.label}>Selecione sua moeda</Text>
 
-                <PickerItem>
+                <PickerItem moedas={moedas} moedaSelecionada={moedaSelecionada} quandoMudar={(moeda) => setMoedaSelecionada(moeda)}>
                 </PickerItem>
-
+                
                 <Text style={styles.label}>Digite o valor para converter em (R$)</Text>
                 <TextInput
                     style={styles.input}

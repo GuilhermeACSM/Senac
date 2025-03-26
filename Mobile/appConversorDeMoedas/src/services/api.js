@@ -4,5 +4,6 @@
 import axios from 'axios';
 
 export const api = axios.create({
-    baseURL: 'https://docs.awesomeapi.com.br/api-de-moedas/json/'
-})
+    baseURL: 'https://economia.awesomeapi.com.br/json/'
+});
+
