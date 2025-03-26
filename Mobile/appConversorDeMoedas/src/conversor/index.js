@@ -1,16 +1,21 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, ActivityIndicator } from "react-native";
 import { Picker } from '@react-native-picker/picker';
 
+import PickerItem from '../picker/picker.js';
 
 export default function Conversor() {
 
     return (
         <View style={styles.container}>
+            <View style={styles.header}>
+                <Text style={styles.title}>💱 Conversor de Moedas 💲</Text>
+            </View>
             <View style={styles.conversorContainer}>
                 <Text style={styles.label}>Selecione sua moeda</Text>
-                <Picker style={styles.picker}>
-                </Picker>
+
+                <PickerItem>
+                </PickerItem>
 
                 <Text style={styles.label}>Digite o valor para converter em (R$)</Text>
                 <TextInput
@@ -25,9 +30,9 @@ export default function Conversor() {
             </View>
 
             <View style={styles.resultContainer}>
-                <Text style={styles.resultValue}>USD </Text>
+                <Text style={styles.resultValue}>BTC</Text>
                 <Text style={styles.resultText}>Valor Convertido:</Text>
-                <Text style={styles.resultValue}>R$ </Text>
+                <Text style={styles.resultValue}>R$</Text>
             </View>
         </View>
     );
@@ -36,9 +41,29 @@ export default function Conversor() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#f5f5f5',
+    },
+    header: {
+        width: '100%',
+        backgroundColor: '#007bff',
+        paddingVertical: 20,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderBottomLeftRadius: 20,
+        borderBottomRightRadius: 20,
+        elevation: 5,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 3 },
+        shadowOpacity: 0.3,
+        shadowRadius: 5,
+        marginBottom: 20,
+    },
+    title: {
+        fontSize: 22,
+        fontWeight: 'bold',
+        color: '#fff',
+        textAlign: 'center',
     },
     conversorContainer: {
         width: '90%',
@@ -57,12 +82,6 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginBottom: 10,
         color: '#333',
-    },
-    picker: {
-        width: '100%',
-        backgroundColor: '#f0f0f0',
-        borderRadius: 8,
-        marginBottom: 15,
     },
     input: {
         width: '100%',
@@ -98,16 +117,16 @@ const styles = StyleSheet.create({
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.2,
         shadowRadius: 4,
-      },
-      resultText: {
+    },
+    resultText: {
         fontSize: 18,
         fontWeight: 'bold',
         color: '#333',
-      },
-      resultValue: {
+    },
+    resultValue: {
         fontSize: 24,
         fontWeight: 'bold',
         color: '#007bff',
         marginTop: 5,
-      },
+    },
 });
