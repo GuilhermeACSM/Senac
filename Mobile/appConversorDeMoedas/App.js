@@ -24,7 +24,7 @@ export default function App() {
             value:key
           });
         });
-        console.log(resposta);
+        //console.log(resposta);
         setMoedas(arrayMoedas);
         setMoedaSelecionada(arrayMoedas[0].key)
         setLoading(false);
@@ -46,7 +46,7 @@ export default function App() {
     )
   } else {
     return (
-      <Conversor moedas={moedas} moedaSelecionada={moedaSelecionada} />
+      <Conversor moedas={moedas} moedaSelecionada={moedaSelecionada} setMoedaSelecionada={setMoedaSelecionada}/>
     );
   }
   

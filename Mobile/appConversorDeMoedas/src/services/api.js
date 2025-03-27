@@ -1,4 +1,4 @@
-// https://docs.awesomeapi.com.br/api-de-moedas/json/
+// https://economia.awesomeapi.com.br/json/
 // Rota para Bitcoin > Real : all/BTC-BRL
 
 import axios from 'axios';

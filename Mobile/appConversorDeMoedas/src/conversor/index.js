@@ -1,8 +1,36 @@
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, ActivityIndicator } from "react-native";
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, ActivityIndicator, Keyboard } from "react-native";
+import React, { useEffect, useState } from 'react';
 
 import PickerItem from '../picker/picker.js';
+import { api } from '../services/api.js';
 
 export default function Conversor({ moedas, moedaSelecionada, setMoedaSelecionada }) {
+
+    const [moedaBValor, setMoedaBValor] = useState('');
+
+    const [valorMoeda, setValorMoeda] = useState(null);
+    const [valorConvertido, setvalorConvertido] = useState(0);
+
+    async function converter(){
+        const resultado = await api.get(`all/${moedaSelecionada}-BRL`);
+
+        if(moedaBValor === 0 || moedaBValor === "" || moedaSelecionada === null) {
+            return;
+        }
+        
+        let convercao = (resultado.data[moedaSelecionada].ask) * parseFloat(moedaBValor);
+        
+
+        console.log(resultado.data[moedaSelecionada].ask);
+        console.log(moedaBValor);
+        console.log(convercao);
+
+        setValorMoeda(moedaBValor);
+        setvalorConvertido(`${convercao.toLocaleString("pt-BR", {style:'currency', currency:"BRL"})}`);
+
+        Keyboard.dismiss();
+        setMoedaBValor("");
+      };
 
     return (
         <View style={styles.container}>
@@ -20,17 +48,19 @@ export default function Conversor({ moedas, moedaSelecionada, setMoedaSelecionad
                     style={styles.input}
                     keyboardType='numeric'
                     placeholder="0.00"
+                    value={moedaBValor}
+                    onChangeText={(valor) => setMoedaBValor(valor)}
                 />
 
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button} onPress={converter}>
                     <Text style={styles.buttonText}>Converter</Text>
                 </TouchableOpacity>
             </View>
 
             <View style={styles.resultContainer}>
-                <Text style={styles.resultValue}>BTC</Text>
+                <Text style={styles.resultValue}>{valorMoeda} {moedaSelecionada}</Text>
                 <Text style={styles.resultText}>Valor Convertido:</Text>
-                <Text style={styles.resultValue}>R$</Text>
+                <Text style={styles.resultValue}>{valorConvertido}</Text>
             </View>
         </View>
     );
