@@ -7,7 +7,7 @@ export default function App() {
 
   const addPerson = () => {
     if (pessoa.length < MAX_CAPACITY) {
-      setPessoa([...pessoa, true]); 
+      setPessoa(pessoa.concat(true)); 
     }
   };
 
