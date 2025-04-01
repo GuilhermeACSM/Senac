@@ -17,14 +17,18 @@ Welcome to my repository! Here, I organize all the content, exercises, and proje
   Practical exercises developed in PHP, applying backend concepts and programming logic.  
 
 - **Portugol**:  
-  Introduction to programming logic using Portugol, including basic algorithms.  
+  Introduction to programming logic using Portugol, including basic algorithms.
+
+- **Mobile**:
+  Exercises and projects related to mobile app development using React Native.
 
 ## Technologies and Tools  
 This repository includes work with the following technologies:  
 - **Frontend**: HTML, CSS, JavaScript  
 - **Backend**: PHP  
 - **Programming Logic**: Portugol  
-- **Database**: SQL  
+- **Database**: SQL
+- **Mobile**: React Native
 
 ## About the Repository  
 Files are organized by topic and separated by subjects covered in each class. The goal is to document my progress and make future reviews easier.  
