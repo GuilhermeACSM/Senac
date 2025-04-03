@@ -30,3 +30,10 @@ COMANDO DOWNLOAD DO AXIOS:
 - npm install --save axios;
 - Para puxar o axios no código é necessário fazer o import;
 - import axios from 'axios';
+
+
+COMANDO DOWNLOAD DO ANIMATABLE: (Animatable = Biblioteca de Animações)
+- https://github.com/oblador/react-native-animatable;
+- npm install react-native-animatable --save;
+- Para puxar o animatable no código é necessário fazer o import;
+- import * as Animatable from 'react-native-animatable';

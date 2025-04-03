@@ -1,0 +1,48 @@
+📌 Animações de Entrada
+Essas animações fazem um elemento aparecer na tela de diferentes formas:
+
+- fadeIn → Suavemente aparece na tela;
+- fadeInDown → Aparece deslizando de cima para baixo;
+- fadeInUp → Aparece deslizando de baixo para cima;
+- fadeInLeft → Aparece deslizando da esquerda;
+- fadeInRight → Aparece deslizando da direita;
+- bounceIn → Aparece com um efeito de pulo;
+- zoomIn → Aparece aumentando de tamanho;
+- flipInX → Entra com uma rotação no eixo X;
+- flipInY → Entra com uma rotação no eixo Y;
+
+🔄 Animações de Saída
+Essas fazem um elemento desaparecer:
+
+- fadeOut → Some suavemente;
+- fadeOutDown → Some deslizando para baixo;
+- fadeOutUp → Some deslizando para cima;
+- fadeOutLeft → Some deslizando para a esquerda;
+- fadeOutRight → Some deslizando para a direita;
+- bounceOut → Some com um efeito de pulo;
+- zoomOut → Some diminuindo de tamanho;
+- flipOutX → Sai com uma rotação no eixo X;
+- flipOutY → Sai com uma rotação no eixo Y;
+
+🎭 Animações de Destaque
+Essas dão um efeito chamativo ao elemento:
+
+- pulse → Faz um leve zoom repetidamente;
+- flash → Pisca rapidamente;
+- rubberBand → Estica e volta ao normal;
+- shake → Vibra para os lados;
+- swing → Balança como um pêndulo;
+- tada → Dá um pequeno zoom com uma rotação;
+- wobble → Mexe para frente e para trás;
+
+
+🚀 Exemplo de Uso:
+Para testar uma animação, basta adicioná-la ao seu componente:
+
+<Animatable.Text
+  style={styles.txt}
+  animation="zoomIn"  // Troque por qualquer animação da lista
+  duration={1500}
+>
+  Testando Animações
+</Animatable.Text>
