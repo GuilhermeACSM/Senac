@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 
 const BotaoAnimado = Animatable.createAnimatableComponent(TouchableOpacity);
@@ -24,14 +24,14 @@ export default function Login() {
 
   return (
     <View style={styles.container}>
-      <Animatable.Text animation="fadeInDown" style={styles.title}>
-        Bem-vindo
-      </Animatable.Text>
+      <Animatable.View animation="fadeInDown" style={styles.logo}>
+        <Image source={require('./assets/Logo1.png')} style={styles.img} />
+      </Animatable.View>
       
       <Animatable.View animation="fadeInUp" style={styles.inputContainer}>
         <TextInput
           style={styles.input}
-          placeholder="E-mail"
+          placeholder="E-mail ou CNPJ"
           placeholderTextColor="#aaa"
           value={usuario}
           onChangeText={setUsuario}
@@ -52,6 +52,7 @@ export default function Login() {
         <Text style={styles.buttonText}>Entrar</Text>
       </BotaoAnimado>
 
+      <Text style={styles.forgotPassword}>Cadastre-se</Text>
       <Text style={styles.forgotPassword}>Esqueceu sua senha?</Text>
     </View>
   );
@@ -65,11 +66,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 20,
   },
-  title: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    color: '#fff',
-    marginBottom: 20,
+  logo: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  img: {
+    width: 250,
+    height: 100,
+    resizeMode: 'contain',
   },
   inputContainer: {
     width: '100%',
@@ -87,7 +91,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   button: {
-    backgroundColor: '#6200EE',
+    backgroundColor: '#ffc72c',
     padding: 15,
     borderRadius: 10,
     alignItems: 'center',
@@ -96,12 +100,12 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   buttonText: {
-    color: '#fff',
+    color: '#000',
     fontSize: 18,
     fontWeight: 'bold',
   },
   forgotPassword: {
-    color: '#6200EE',
+    color: '#ffc72c',
     marginTop: 15,
     fontSize: 14,
   },
