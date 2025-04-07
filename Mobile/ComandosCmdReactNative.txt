@@ -37,3 +37,11 @@ COMANDO DOWNLOAD DO ANIMATABLE: (Animatable = Biblioteca de Animações)
 - npm install react-native-animatable --save;
 - Para puxar o animatable no código é necessário fazer o import;
 - import * as Animatable from 'react-native-animatable';
+
+
+
+COMANDO DOWNLOAD DO VECTOR-ICONS: (VECTOR-ICONS = Biblioteca de Icones)
+- npm install --save @react-native-vector-icons/common
+- npm install --save @react-native-vector-icons/fontawesome6 @react-native-vector-icons/evil-icons
+- import Icon from '@react-native-vector-icons/fontawesome';
+- const myIcon = <Icon name="rocket" size={30} color="#900" />; (Exemplo de declaração)
