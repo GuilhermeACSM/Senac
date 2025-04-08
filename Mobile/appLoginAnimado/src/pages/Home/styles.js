@@ -3,28 +3,51 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1E1E1E',
-  },
-  header: {
-    backgroundColor: '#2A2A2A',
-    flexDirection: 'row', 
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 20,
-    paddingVertical: 15,
-  },
-  logo: {
-    width: 120,
-    height: 50,
-    resizeMode: 'contain',
+    backgroundColor: '#000',
   },
   content: {
-    flex: 1,
+    padding: 20,
     alignItems: 'center',
     justifyContent: 'center',
+    height:'100%'
   },
-  text: {
+  title: {
     color: '#fff',
-    fontSize: 20,
+    fontSize: 26,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 20,
+  },
+  iconContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    gap: 20,
+    marginBottom: 30,
+  },
+  subtitle: {
+    color: '#aaa',
+    fontSize: 16,
+    textAlign: 'center',
+    marginBottom: 30,
+  },
+  button: {
+    backgroundColor: '#ffc72c',
+    paddingVertical: 12,
+    borderRadius: 10,
+    alignItems: 'center',
+    width: '100%',
+    marginBottom: 20,
+  },
+  buttonText: {
+    color: '#000',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  footer: {
+    color: '#555',
+    fontSize: 14,
+    textAlign: 'center',
+    marginTop: 40,
   },
 });
