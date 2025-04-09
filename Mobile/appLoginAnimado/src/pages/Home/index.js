@@ -5,42 +5,48 @@ import Header from '../../components/Header';
 import styles from './styles';
 
 export default function Home({ navigation }) {
+  const nomeUsuario = 'Guilherme'; 
+
   return (
     <View style={styles.container}>
       <Header navigation={navigation} />
 
       <ScrollView contentContainerStyle={styles.content}>
-
-        <Text style={styles.title}>Conectando pessoas através do esporte!</Text>
-
-        <View style={styles.iconContainer}>
-          <Icon name="soccer" size={50} color="#ffc72c" />
-          <Icon name="basketball" size={50} color="#ffc72c" />
-          <Icon name="volleyball" size={50} color="#ffc72c" />
-          <Icon name="tennis" size={50} color="#ffc72c" />
+        
+        <View style={styles.profileContainer}>
+          <Icon name="account-circle" size={100} color="#ffc72c" />
+          <Text style={styles.welcomeText}>Olá, {nomeUsuario}!</Text>
+          <Text style={styles.subtitle}>
+            Conectando pessoas através do esporte!
+          </Text>
         </View>
 
-        <Text style={styles.subtitle}>
-          Nosso objetivo é aproximar pessoas que gostam de praticar esportes, mas não têm com quem jogar.
-        </Text>
-
-        <TouchableOpacity 
-          style={styles.button} 
-          onPress={() => navigation.navigate('Eventos')}
-        >
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Eventos')}>
           <Text style={styles.buttonText}>Ver Eventos Disponíveis</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity 
-          style={styles.button} 
-          onPress={() => navigation.navigate('CriarEvento')}
-        >
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('CriarEvento')}>
           <Text style={styles.buttonText}>Criar Novo Evento</Text>
         </TouchableOpacity>
 
-        <Text style={styles.footer}>
-          Esporte é saúde, diversão e novas amizades!
-        </Text>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Perfil')}>
+          <Text style={styles.buttonText}>Editar Perfil</Text>
+        </TouchableOpacity>
+
+        <View style={styles.iconContainer}>
+          <View style={styles.iconBackground}>
+            <Icon name="soccer" size={30} color="#ffc72c" />
+          </View>
+          <View style={styles.iconBackground}>
+            <Icon name="basketball" size={30} color="#ffc72c" />
+          </View>
+          <View style={styles.iconBackground}>
+            <Icon name="volleyball" size={30} color="#ffc72c" />
+          </View>
+          <View style={styles.iconBackground}>
+            <Icon name="tennis" size={30} color="#ffc72c" />
+          </View>
+        </View>
 
       </ScrollView>
     </View>

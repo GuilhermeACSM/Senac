@@ -50,8 +50,8 @@ export default StyleSheet.create({
     color: '#fff',
     fontSize: 20,
     fontWeight: 'bold',
-    paddingVertical: 15, // aumenta o espaço em cima e embaixo
-    borderBottomWidth: 1, // opcional pra separar com linha
-    borderBottomColor: '#555', // cor da linha
+    paddingVertical: 15, 
+    borderBottomWidth: 1, 
+    borderBottomColor: '#555', 
   },
 });

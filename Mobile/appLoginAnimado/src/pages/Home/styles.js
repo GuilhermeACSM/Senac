@@ -1,53 +1,71 @@
 import { StyleSheet } from 'react-native';
 
-export default StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000',
+    backgroundColor: '#1E1E1E',
   },
+
   content: {
-    padding: 20,
     alignItems: 'center',
-    justifyContent: 'center',
-    height:'100%'
+    padding: 20,
   },
-  title: {
+
+  profileContainer: {
+    alignItems: 'center',
+    marginBottom: 30,
+  },
+
+  welcomeText: {
+    fontSize: 24,
     color: '#fff',
-    fontSize: 26,
     fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: 20,
+    marginTop: 10,
   },
+
+  subtitle: {
+    fontSize: 16,
+    color: '#aaa',
+    textAlign: 'center',
+    marginTop: 5,
+  },
+
+  button: {
+    backgroundColor: '#ffc72c',
+    paddingVertical: 12,
+    paddingHorizontal: 25,
+    borderRadius: 25,
+    marginVertical: 8,
+    width: '80%',
+    alignItems: 'center',
+  },
+
+  buttonText: {
+    color: '#121212',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+
   iconContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'center',
-    gap: 20,
-    marginBottom: 30,
+    marginTop: 20,
   },
-  subtitle: {
-    color: '#aaa',
-    fontSize: 16,
-    textAlign: 'center',
-    marginBottom: 30,
-  },
-  button: {
-    backgroundColor: '#ffc72c',
-    paddingVertical: 12,
-    borderRadius: 10,
+
+  iconBackground: {
+    backgroundColor: '#1e1e1e',
+    padding: 15,
+    borderRadius: 50,
+    margin: 10,
     alignItems: 'center',
-    width: '100%',
-    marginBottom: 20,
-  },
-  buttonText: {
-    color: '#000',
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  footer: {
-    color: '#555',
-    fontSize: 14,
-    textAlign: 'center',
-    marginTop: 40,
+    justifyContent: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 5,
   },
 });
+
+export default styles;

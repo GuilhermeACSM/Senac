@@ -33,13 +33,13 @@ export default StyleSheet.create({
     bottom: 0,
     right: 0,
     width: width * 0.6,
-    backgroundColor: '#111', // Preto um pouco mais claro pra destacar
+    backgroundColor: '#111', 
     padding: 20,
   },
   menuText: {
     fontSize: 18,
     marginVertical: 15,
-    color: '#fff', // Texto branco no menu
+    color: '#fff', 
     fontWeight: 'bold',
   },
   
